@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="images/money.png">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>SpendSavy - Track Your Finances</title>
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>SpendSavy - Track Your Finances 💰</h1>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid-container">
+
+            <!-- Form Column (Income & Expenses Form) -->
+            <div class="form-column">
+                <form id="finance-form">
+                    
+                    <!-- Section 1: Incomes -->
+                    <fieldset class="income-section">
+                        <legend><h2>Incomes</h2></legend>
+
+                        <!-- Employment Income -->
+                        <div class="section">
+                            <h3>Employment Income</h3>
+                            <div class="form-group">
+                                <label for="salary">Salary (€):</label>
+                                <input type="number" id="salary" name="salary" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="bonuses">Bonuses (€):</label>
+                                <input type="number" id="bonuses" name="bonuses" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="commissions">Commissions (€):</label>
+                                <input type="number" id="commissions" name="commissions" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="fees">Fees (€):</label>
+                                <input type="number" id="fees" name="fees" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="tips">Tips (€):</label>
+                                <input type="number" id="tips" name="tips" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Capital Income -->
+                        <div class="section">
+                            <h3>Capital Income</h3>
+                            <div class="form-group">
+                                <label for="rental_income">Rental Income (€):</label>
+                                <input type="number" id="rental_income" name="rental_income" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="dividends">Dividends (€):</label>
+                                <input type="number" id="dividends" name="dividends" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="interest">Interest (€):</label>
+                                <input type="number" id="interest" name="interest" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="capital_gains">Capital Gains (€):</label>
+                                <input type="number" id="capital_gains" name="capital_gains" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Non-Professional Income -->
+                        <div class="section">
+                            <h3>Non-Professional Income</h3>
+                            <div class="form-group">
+                                <label for="pensions">Pensions (€):</label>
+                                <input type="number" id="pensions" name="pensions" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="benefits">Benefits (€):</label>
+                                <input type="number" id="benefits" name="benefits" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="unemployment">Unemployment allowance (€):</label>
+                                <input type="number" id="unemployment" name="unemployment" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="platform_revenue">Platform Revenue (€):</label>
+                                <input type="number" id="platform_revenue" name="platform_revenue" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Other Income -->
+                        <div class="section">
+                            <h3>Other Income</h3>
+                            <div class="form-group">
+                                <label for="exceptional_income">Exceptional Income (€):</label>
+                                <input type="number" id="exceptional_income" name="exceptional_income" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="royalties">Royalties (€):</label>
+                                <input type="number" id="royalties" name="royalties" step="1.00">
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <!-- Section 2: Expenses -->
+                    <fieldset class="expenses-section">
+                        <legend><h2>Expenses</h2></legend>
+
+                        <!-- Housing -->
+                        <div class="section">
+                            <h3>Housing</h3>
+                            <div class="form-group">
+                                <label for="rent_mortgage">Rent or Mortgage (€):</label>
+                                <input type="number" id="rent_mortgage" name="rent_mortgage" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="home_insurance">Home Insurance (€):</label>
+                                <input type="number" id="home_insurance" name="home_insurance" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="electricity">Electricity (€):</label>
+                                <input type="number" id="electricity" name="electricity" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="gas">Gas (€):</label>
+                                <input type="number" id="gas" name="gas" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="water">Water (€):</label>
+                                <input type="number" id="water" name="water" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="local_taxes">Local Taxes (€):</label>
+                                <input type="number" id="local_taxes" name="local_taxes" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="home_maintenance">Home Maintenance (€):</label>
+                                <input type="number" id="home_maintenance" name="home_maintenance" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Communication and Services -->
+                        <div class="section">
+                            <h3>Communication and Services</h3>
+                            <div class="form-group">
+                                <label for="phone_subscription">Phone Subscription (€):</label>
+                                <input type="number" id="phone_subscription" name="phone_subscription" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="internet_tv">Internet and TV (€):</label>
+                                <input type="number" id="internet_tv" name="internet_tv" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="bank_fees">Bank Fees (€):</label>
+                                <input type="number" id="bank_fees" name="bank_fees" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="services">Services (cleaning, gardening, babysitting) (€):</label>
+                                <input type="number" id="services" name="services" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Transportation -->
+                        <div class="section">
+                            <h3>Transportation</h3>
+                            <div class="form-group">
+                                <label for="transportation">Transportation (fuel, public transport, car maintenance) (€):</label>
+                                <input type="number" id="transportation" name="transportation" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Health -->
+                        <div class="section">
+                            <h3>Health</h3>
+                            <div class="form-group">
+                                <label for="health_expenses">Health (medications, medical consultations) (€):</label>
+                                <input type="number" id="health_expenses" name="health_expenses" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="health_insurance">Health Insurance (€):</label>
+                                <input type="number" id="health_insurance" name="health_insurance" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Food -->
+                        <div class="section">
+                            <h3>Food</h3>
+                            <div class="form-group">
+                                <label for="food">Food (€):</label>
+                                <input type="number" id="food" name="food" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="section">
+                            <h3>Education</h3>
+                            <div class="form-group">
+                                <label for="education">Education (school fees, school supplies) (€):</label>
+                                <input type="number" id="education" name="education" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Leisure and Entertainment -->
+                        <div class="section">
+                            <h3>Leisure and Entertainment</h3>
+                            <div class="form-group">
+                                <label for="leisure_entertainment">Leisure and Entertainment (€):</label>
+                                <input type="number" id="leisure_entertainment" name="leisure_entertainment" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="clothing_shoes">Clothing and Shoes (€):</label>
+                                <input type="number" id="clothing_shoes" name="clothing_shoes" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Finances -->
+                        <div class="section">
+                            <h3>Finances</h3>
+                            <div class="form-group">
+                                <label for="loans_repayments">Loans and Repayments (€):</label>
+                                <input type="number" id="loans_repayments" name="loans_repayments" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="savings_investments">Savings and Investments (€):</label>
+                                <input type="number" id="savings_investments" name="savings_investments" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="income_taxes">Income Taxes (€):</label>
+                                <input type="number" id="income_taxes" name="income_taxes" step="1.00">
+                            </div>
+                        </div>
+
+                        <!-- Other Expenses -->
+                        <div class="section">
+                            <h3>Other</h3>
+                            <div class="form-group">
+                                <label for="gifts_donations">Gifts and Donations (€):</label>
+                                <input type="number" id="gifts_donations" name="gifts_donations" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="cleaning_products">Cleaning Products and Supplies (€):</label>
+                                <input type="number" id="cleaning_products" name="cleaning_products" step="1.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="car_maintenance_repairs">Car Maintenance and Repairs (€):</label>
+                                <input type="number" id="car_maintenance_repairs" name="car_maintenance_repairs" step="1.00">
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+
+            <!-- Totals Column -->
+            <div class="total-column">
+                <div class="total-group">
+                    <label>Total Income:</label>
+                    <div id="total-income">0.00</div>
+                </div>
+                <div class="total-group">
+                    <label>Total Expenses:</label>
+                    <div id="total-expenses">0.00</div>
+                </div>
+                <div class="total-group">
+                    <label>Balance:</label>
+                    <div id="balance">0.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 SpendSavy - All Rights Reserved</p>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

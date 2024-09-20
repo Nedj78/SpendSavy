@@ -1,0 +1,246 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 50vw;
+}
+
+legend h2 {
+    margin-bottom: 10px;
+}
+
+.income-section {
+    border: 2px solid #11882a;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.income-section h3 {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.expenses-section {
+    border: 2px solid #d66161;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.expenses-section h3 {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Totals Column */
+.total-group > label {
+    font-size: 15pt;
+}
+
+#total-income,
+#total-expenses,
+#balance {
+    padding: 10px;
+}
+
+.total-column {
+    position: fixed; 
+    right: 0; 
+    top: 145px; 
+    background-color: #f0f8ff;
+    padding: 20px;
+    margin: 0; 
+    border-radius: 8px;
+    width: 30vw; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    height: auto; 
+    max-height: 80vh; 
+    overflow-y: auto; 
+    z-index: 1000;
+}
+
+footer > p {
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .total-column {
+        width: 40vw; 
+        top: 100px; 
+    }
+}
+
+@media (max-width: 992px) {
+    .grid-container {
+        margin: 30px 0 0 0;
+        grid-template-columns: 1fr; 
+    }
+
+    header h1 {
+        font-size: 15pt;
+        text-align: center;
+    }
+
+    .total-column {
+        width: 50vw; 
+        top: 110px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .total-column {
+        width: 70vw; 
+        top: 50px; 
+    }
+
+    header h1 {
+        width: 100vw; 
+    }
+
+    footer {
+        margin: 0 0 350px 0;
+    }
+
+    .total-column {
+        position: fixed; 
+        top: 650px; 
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        position: absolute;
+        font-size: 15pt;
+        text-align: center;
+        margin: 0 0 0 -20px;
+    }
+
+    .grid-container {
+        margin: 30px 0 0 0;
+    }
+
+    .total-column {
+        width: 90vw; 
+        top: 30px; 
+        padding: 15px; 
+    }
+
+    .form-group input {
+        font-size: 0.9em; 
+    }
+
+    footer {
+        margin: 0 0 250px 0;
+    }
+
+    .total-column {
+        position: fixed; 
+        top: 630px; 
+    }
+}
+
+@media (max-width: 376px) {
+    body {
+        margin: -23px 0 0 0;
+    }
+
+    header h1 {
+        position: absolute;
+        font-size: 15pt;
+        text-align: center;
+        margin: 0 0 0 -20px;
+    }
+
+    .grid-container {
+        margin: 30px 0 0 0;
+    }
+
+    .total-column {
+        width: 90vw; 
+        top: 30px; 
+        padding: 15px; 
+    }
+
+    .form-group input {
+        font-size: 0.9em; 
+    }
+
+    footer {
+        margin: 0 0 250px 0;
+    }
+
+    .total-column {
+        position: fixed; 
+        top: 450px; 
+    }
+}
