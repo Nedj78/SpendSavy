@@ -172,7 +172,7 @@ footer > p {
 
     .total-column {
         width: 50vw; 
-        top: 110px; 
+        top: 100px; 
     }
 }
 
@@ -192,7 +192,7 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 630px; 
+        top: 600px; 
     }
 }
 
@@ -228,7 +228,7 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 580px; 
+        top: 550px; 
     }
 }
 
@@ -268,7 +268,7 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 290px; 
+        top: 250px; 
     }
 }
 
@@ -308,6 +308,6 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 580px; 
+        top: 550px; 
     }
 }
