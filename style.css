@@ -62,6 +62,25 @@ legend h2 {
     gap: 20px;
 }
 
+#download-pdf {
+    background-color: #626964;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+#download-pdf:hover {
+    background-color: #09350c;
+}
+
+.language {
+    text-align: center;
+}
+
 /* Form Styles */
 .form-group {
     margin-bottom: 15px;
@@ -129,6 +148,11 @@ button[type="submit"]:hover {
     z-index: 1000;
 }
 
+#pieChart {
+    margin: 20px auto;
+    max-width: 400px;
+}
+
 footer > p {
     text-align: center;
 }
@@ -173,7 +197,7 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 650px; 
+        top: 630px; 
     }
 }
 
@@ -205,7 +229,7 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 600px; 
+        top: 580px; 
     }
 }
 
@@ -241,7 +265,7 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 330px; 
+        top: 300px; 
     }
 }
 
@@ -277,6 +301,6 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 600px; 
+        top: 580px; 
     }
 }
