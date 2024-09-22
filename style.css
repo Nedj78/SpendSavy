@@ -148,11 +148,6 @@ button[type="submit"]:hover {
     z-index: 1000;
 }
 
-#pieChart {
-    margin: 20px auto;
-    max-width: 400px;
-}
-
 footer > p {
     text-align: center;
 }
@@ -202,6 +197,10 @@ footer > p {
 }
 
 @media (max-width: 576px) {
+    html {
+        height: 700vh;
+    }
+
     header h1 {
         position: absolute;
         font-size: 15pt;
@@ -234,6 +233,10 @@ footer > p {
 }
 
 @media (max-width: 376px) {
+    html {
+        height: 700vh;
+    }
+
     body {
         margin: -23px 0 0 0;
     }
@@ -265,11 +268,15 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 300px; 
+        top: 290px; 
     }
 }
 
 @media (max-width: 345px) {
+    html {
+        height: 700vh;
+    }
+    
     body {
         margin: -23px 0 0 0;
     }
