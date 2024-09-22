@@ -234,7 +234,7 @@ footer > p {
 
 @media (max-width: 376px) {
     html {
-        height: 700vh;
+        height: 900vh;
     }
 
     body {
@@ -276,7 +276,7 @@ footer > p {
     html {
         height: 700vh;
     }
-    
+
     body {
         margin: -23px 0 0 0;
     }
