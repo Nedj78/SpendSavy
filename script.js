@@ -97,7 +97,8 @@ function generatePDF() {
     const healthInsurance = document.getElementById('health_insurance').value || 0;
     const food = document.getElementById('food').value || 0;
     const education = document.getElementById('education').value || 0;
-    const leisureEntertainment = document.getElementById('leisure_entertainment').value || 0;
+    const sport = document.getElementById('sport').value || 0;
+    const vacation = document.getElementById('vacation').value || 0;
     const clothingShoes = document.getElementById('clothing_shoes').value || 0;
     const loansRepayments = document.getElementById('loans_repayments').value || 0;
     const savingsInvestments = document.getElementById('savings_investments').value || 0;
@@ -142,21 +143,21 @@ function generatePDF() {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
     const incomeEntries = [
-        `Salary: €${salary}`,
-        `Bonuses: €${bonuses}`,
-        `Commissions: €${commissions}`,
-        `Fees: €${fees}`,
-        `Tips: €${tips}`,
-        `Rental Income: €${rentalIncome}`,
-        `Dividends: €${dividends}`,
-        `Interest: €${interest}`,
-        `Capital Gains: €${capitalGains}`,
-        `Pensions: €${pensions}`,
-        `Benefits: €${benefits}`,
-        `Unemployment: €${unemployment}`,
-        `Platform Revenue: €${platformRevenue}`,
-        `Exceptional Income: €${exceptionalIncome}`,
-        `Royalties: €${royalties}`
+        `Salary: € ${salary}`,
+        `Bonuses: € ${bonuses}`,
+        `Commissions: € ${commissions}`,
+        `Fees: € ${fees}`,
+        `Tips: € ${tips}`,
+        `Rental Income: € ${rentalIncome}`,
+        `Dividends: € ${dividends}`,
+        `Interest: € ${interest}`,
+        `Capital Gains: € ${capitalGains}`,
+        `Pensions: € ${pensions}`,
+        `Benefits: € ${benefits}`,
+        `Unemployment: € ${unemployment}`,
+        `Platform Revenue: € ${platformRevenue}`,
+        `Exceptional Income: € ${exceptionalIncome}`,
+        `Royalties: € ${royalties}`
     ];
 
     incomeEntries.forEach(entry => {
@@ -173,30 +174,31 @@ function generatePDF() {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
     const expenseEntries = [
-        `Rent/Mortgage: €${rentMortgage}`,
-        `Home Insurance: €${homeInsurance}`,
-        `Electricity: €${electricity}`,
-        `Gas: €${gas}`,
-        `Water: €${water}`,
-        `Local Taxes: €${localTaxes}`,
-        `Home Maintenance: €${homeMaintenance}`,
-        `Phone Subscription: €${phoneSubscription}`,
-        `Internet & TV: €${internetTv}`,
-        `Bank Fees: €${bankFees}`,
-        `Services: €${services}`,
-        `Transportation: €${transportation}`,
-        `Health Expenses: €${healthExpenses}`,
-        `Health Insurance: €${healthInsurance}`,
-        `Food: €${food}`,
-        `Education: €${education}`,
-        `Leisure/Entertainment: €${leisureEntertainment}`,
-        `Clothing & Shoes: €${clothingShoes}`,
-        `Loans/Repayments: €${loansRepayments}`,
-        `Savings/Investments: €${savingsInvestments}`,
-        `Income Taxes: €${incomeTaxes}`,
-        `Gifts/Donations: €${giftsDonations}`,
-        `Cleaning Products: €${cleaningProducts}`,
-        `Car Maintenance/Repairs: €${carMaintenanceRepairs}`
+        `Rent/Mortgage: € ${rentMortgage}`,
+        `Home Insurance: € ${homeInsurance}`,
+        `Electricity: € ${electricity}`,
+        `Gas: € ${gas}`,
+        `Water: € ${water}`,
+        `Local Taxes: € ${localTaxes}`,
+        `Home Maintenance: € ${homeMaintenance}`,
+        `Phone Subscription: € ${phoneSubscription}`,
+        `Internet & TV: € ${internetTv}`,
+        `Bank Fees: € ${bankFees}`,
+        `Services: € ${services}`,
+        `Transportation: € ${transportation}`,
+        `Health Expenses: € ${healthExpenses}`,
+        `Health Insurance: € ${healthInsurance}`,
+        `Food: € ${food}`,
+        `Education: € ${education}`,
+        `Sport: € ${sport}`,
+        `Vacation: € ${vacation}`,
+        `Clothing & Shoes: € ${clothingShoes}`,
+        `Loans/Repayments: € ${loansRepayments}`,
+        `Savings/Investments: € ${savingsInvestments}`,
+        `Income Taxes: € ${incomeTaxes}`,
+        `Gifts/Donations: € ${giftsDonations}`,
+        `Cleaning Products: € ${cleaningProducts}`,
+        `Car Maintenance/Repairs: € ${carMaintenanceRepairs}`
     ];
 
     expenseEntries.forEach(entry => {

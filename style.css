@@ -155,7 +155,7 @@ footer > p {
 @media (max-width: 1200px) {
     .total-column {
         width: 40vw; 
-        top: 100px; 
+        top: 110px; 
     }
 }
 
@@ -172,7 +172,7 @@ footer > p {
 
     .total-column {
         width: 50vw; 
-        top: 100px; 
+        top: 110px; 
     }
 }
 
@@ -192,7 +192,7 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 600px; 
+        top: 610px; 
     }
 }
 
@@ -228,7 +228,7 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 550px; 
+        top: 560px; 
     }
 }
 
@@ -268,7 +268,7 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 250px; 
+        top: 270px; 
     }
 }
 
@@ -308,6 +308,6 @@ footer > p {
 
     .total-column {
         position: fixed; 
-        top: 550px; 
+        top: 560px; 
     }
 }
