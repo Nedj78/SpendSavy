@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const value = parseFloat(input.value) || 0;
             totalIncome += value;
         });
-        totalIncomeElement.innerText = totalIncome.toFixed(2) + " " + "€";;
+        totalIncomeElement.innerText = totalIncome.toFixed(2);
         updateBalance();
     }
 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const value = parseFloat(input.value) || 0;
             totalExpenses += value;
         });
-        totalExpensesElement.innerText = totalExpenses.toFixed(2) + " " + "€";
+        totalExpensesElement.innerText = totalExpenses.toFixed(2);
         updateBalance();
     }
 
@@ -114,10 +114,10 @@ function generatePDF() {
 
     // Column positions
     const leftColumnX = 20;
-    const rightColumnX = 100; // Adjust this based on your page width
-    let currentY = 40; // Position Y initiale
+    const rightColumnX = 100; 
+    let currentY = 30; 
 
-    // Obtenez la date actuelle
+    // Get current date
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-US', {
         year: 'numeric',
@@ -125,13 +125,13 @@ function generatePDF() {
         day: 'numeric'
     });
 
-    // Affichez la date dans le PDF (en haut de la première colonne)
+    // Display current date
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
     doc.text(`${formattedDate}`, leftColumnX, currentY); 
-    currentY += 15; 
+    currentY += 10; 
 
-    // PDF Content
+    // Top title content
     doc.setFontSize(18);
     doc.text("SpendSavy - Financial Report", 20, 20);
 
@@ -165,8 +165,8 @@ function generatePDF() {
         currentY += 10; 
     });
 
-    // Réinitialiser pour la section des dépenses
-    currentY = 30;
+    // Section Expenses
+    currentY = 40;
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
     doc.text("Expenses", rightColumnX, currentY); 
@@ -203,11 +203,11 @@ function generatePDF() {
 
     expenseEntries.forEach(entry => {
         doc.text(entry, rightColumnX, currentY);
-        currentY += 10; // Espace entre les lignes
+        currentY += 10; 
     });
 
-    // Résumé
-    currentY = 30; // Réinitialiser pour la section du résumé
+    // Summary
+    currentY = 30; 
     doc.addPage();
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
@@ -215,12 +215,12 @@ function generatePDF() {
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.text(`Total Income: €${totalIncome}`, 20, currentY);
+    doc.text(`Total Income: € ${totalIncome}`, 20, currentY);
     currentY += 10;
-    doc.text(`Total Expenses: €${totalExpenses}`, 20, currentY);
+    doc.text(`Total Expenses: € ${totalExpenses}`, 20, currentY);
     currentY += 10;
 
-    // Convertir résultats en nombre
+    // Convert results to number
     totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
     totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
 
@@ -230,18 +230,18 @@ function generatePDF() {
 
     if (balance > 0) {
         console.log("Le solde est positif.");
-        doc.setTextColor(0, 128, 0); // Vert
+        doc.setTextColor(0, 128, 0); // Green
     } else if (balance === 0) {
         console.log("Le solde est zéro.");
-        doc.setTextColor(0, 0, 0); // Noir
+        doc.setTextColor(0, 0, 0); // Black
     } else {
         console.log("Le solde est négatif.");
-        doc.setTextColor(255, 0, 0); // Rouge
+        doc.setTextColor(255, 0, 0); // Red
     }
 
     doc.setFont("helvetica", "bold");
-    doc.text(`Balance: €${balance}`, 20, currentY);
+    doc.text(`Balance: € ${balance}`, 20, currentY);
     
-    // Sauvegarder le PDF
+    // Save PDF
     doc.save('Financial_Report.pdf');
 };
