@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {      
     const incomeInputs = document.querySelectorAll('.income-section input[type="number"]');
     const expenseInputs = document.querySelectorAll('.expenses-section input[type="number"]');
     
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalExpensesElement = document.getElementById("total-expenses");
     const balanceElement = document.getElementById("balance");
 
-    function calculateTotalIncome() {
+    const calculateTotalIncome = () => {
         let totalIncome = 0;
         incomeInputs.forEach(input => {
             const value = parseFloat(input.value) || 0;
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateBalance();
     }
 
-    function calculateTotalExpenses() {
+    const calculateTotalExpenses = () => {
         let totalExpenses = 0;
         expenseInputs.forEach(input => {
             const value = parseFloat(input.value) || 0;
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateBalance();
     }
 
-    function updateBalance() {
+    const updateBalance = () => {
         const totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
         const totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
         const balance = totalIncome - totalExpenses;
@@ -91,7 +91,7 @@ function generatePDF() {
     const phoneSubscription = document.getElementById('phone_subscription').value || 0;
     const internetTv = document.getElementById('internet_tv').value || 0;
     const bankFees = document.getElementById('bank_fees').value || 0;
-    const services = document.getElementById('services').value || 0;
+    const miscellaneous = document.getElementById('miscellaneous').value || 0;
     const transportation = document.getElementById('transportation').value || 0;
     const healthExpenses = document.getElementById('health_expenses').value || 0;
     const healthInsurance = document.getElementById('health_insurance').value || 0;
@@ -130,6 +130,7 @@ function generatePDF() {
     doc.setFont("helvetica", "normal");
     doc.text(`${formattedDate}`, leftColumnX, currentY); 
     currentY += 10; 
+
 
     // Top title content
     doc.setFontSize(18);
@@ -184,7 +185,7 @@ function generatePDF() {
         `Phone Subscription: € ${phoneSubscription}`,
         `Internet & TV: € ${internetTv}`,
         `Bank Fees: € ${bankFees}`,
-        `Services: € ${services}`,
+        `Miscellaneous services: € ${miscellaneous}`,
         `Transportation: € ${transportation}`,
         `Health Expenses: € ${healthExpenses}`,
         `Health Insurance: € ${healthInsurance}`,
@@ -241,7 +242,36 @@ function generatePDF() {
 
     doc.setFont("helvetica", "bold");
     doc.text(`Balance: € ${balance}`, 20, currentY);
-    
-    // Save PDF
-    doc.save('Financial_Report.pdf');
-};
+
+    const pdfDataUri = doc.output('datauristring');
+
+    const newWindow = window.open();
+    newWindow.document.write(`
+        <html>
+            <head>
+                <title>SpendSavy report</title> 
+            </head>
+            <body>
+                <iframe width="100%" height="100%" src="${pdfDataUri}"></iframe>
+            </body>
+        </html>
+        `);
+    };
+
+const hideTotalColumns = document.querySelector('.total-column');
+const darkBackground = document.querySelector('.dark');
+const cross = document.querySelector('.delete-total-group');
+const ctaOpen = document.querySelector('.cta-open');
+
+cross.addEventListener('click', () => {
+    hideTotalColumns.classList.add('hidden'); 
+    darkBackground.classList.add('hidden');
+    ctaOpen.style.display = 'flex';
+});
+
+ctaOpen.addEventListener('click', () => {
+    hideTotalColumns.classList.toggle('hidden'); 
+    darkBackground.classList.toggle('hidden'); 
+    ctaOpen.style.display = 'none';  
+});
+
