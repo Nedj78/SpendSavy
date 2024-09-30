@@ -396,7 +396,7 @@ footer > p {
         font-weight: bold;             
         color: rgb(255, 255, 255);                  
         position: absolute;  
-        top: -16%;
+        top: 45%;
         left: 50%;                    
         transform: translate(-50%, -50%); 
     }
@@ -461,7 +461,7 @@ footer > p {
         color: white;
         font-size: 16px;
         font-weight: bold;
-        line-height: 0.8;
+        line-height: 0.6;
     }
     
     .cta-open p {
@@ -509,7 +509,7 @@ footer > p {
         font-weight: bold;             
         color: rgb(255, 255, 255);                  
         position: absolute;  
-        top: -16%;
+        top: 45%;
         left: 50%;                    
         transform: translate(-50%, -50%); 
     }
@@ -627,20 +627,7 @@ footer > p {
 /* iPhone SE (2020) */
 @media (min-height: 667px) {
     .cta-open {
-        position: fixed;
-        right: 0;
-        bottom: 132px;
-        width: 40px;
         height: 50vh;
-        background-color: #3498db; 
-        border-radius: 5px 0 0 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
         line-height: 0.8;
     }
 }
@@ -648,41 +635,47 @@ footer > p {
 /* Google Pixel 6a */
 @media (min-height: 780px) {
     .cta-open {
-        position: fixed;
-        right: 0;
-        bottom: 132px;
-        width: 40px;
         height: 50vh;
-        background-color: #3498db; 
-        border-radius: 5px 0 0 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
         line-height: 0.8;
+    }
+}
+
+/* IPhone 6/7/8 Plus */
+@media (min-height: 736px) {
+    .cta-open {
+        height: 50vh;
+        line-height: 0;
+    }
+
+    .total-column {
+        width: 50vw; 
+        top: 280px; 
+        padding: 15px; 
+    }
+
+    .dark {
+        display: none;
+    }
+}
+
+/* iPhone X */
+@media (min-height: 812px) {
+    .cta-open {
+        height: 40vh;
+        line-height: 0.8;
+    }
+
+    .total-column {
+        width: 50vw; 
+        top: 260px; 
+        padding: 15px; 
     }
 }
 
 /* iPhone 12, 13, 14 */
 @media (min-height: 844px) {
     .cta-open {
-        position: fixed;
-        right: 0;
-        bottom: 132px;
-        width: 40px;
         height: 50vh;
-        background-color: #3498db; 
-        border-radius: 5px 0 0 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
         line-height: 0.1;
     }
 }
@@ -690,20 +683,7 @@ footer > p {
 /* iPhone 12/13/14 Pro Max */
 @media (min-height: 926px) {
     .cta-open {
-        position: fixed;
-        right: 0;
-        bottom: 132px;
-        width: 40px;
         height: 50vh;
-        background-color: #3498db; 
-        border-radius: 5px 0 0 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
         line-height: 0.8;
     }
 }
@@ -711,20 +691,7 @@ footer > p {
 /* Samsung Galaxy S21/S22/S23 */
 @media (min-height: 900px) {
     .cta-open {
-        position: fixed;
-        right: 0;
-        bottom: 132px;
-        width: 40px;
         height: 50vh;
-        background-color: #3498db; 
-        border-radius: 5px 0 0 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
         line-height: 0.8;
     }
 }
@@ -732,20 +699,7 @@ footer > p {
 /* OnePlus 9/10 Pro */
 @media (min-height: 915px) {
     .cta-open {
-        position: fixed;
-        right: 0;
-        bottom: 132px;
-        width: 40px;
         height: 45vh;
-        background-color: #3498db; 
-        border-radius: 5px 0 0 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
         line-height: 0;
     }
 }
@@ -753,20 +707,7 @@ footer > p {
 /* iPad Mini (6e génération) */
 @media (min-height: 926px) {
     .cta-open {
-        position: fixed;
-        right: 0;
-        bottom: 132px;
-        width: 40px;
         height: 40vh;
-        background-color: #3498db; 
-        border-radius: 5px 0 0 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
         line-height: 0;
     }
 }
@@ -776,4 +717,12 @@ footer > p {
     .delete-total-group {
         display: none;
     }
+
+    .total-column {
+        top: 190px; 
+        width: 23vw; 
+    }
+
+    
+
 }
