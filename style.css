@@ -435,7 +435,7 @@ footer > p {
     .total-column {
         display: none;
         width: 90vw; 
-        top: 280px; 
+        top: 250px; 
         padding: 15px; 
         position: fixed; 
         right: 0; 
@@ -472,7 +472,7 @@ footer > p {
         display: none;
         position: fixed; 
         right: 0; 
-        top: 555px; 
+        top: 525px; 
         padding: 20px;
         margin: 0; 
         width: 100vw; 
@@ -509,7 +509,7 @@ footer > p {
         font-weight: bold;             
         color: rgb(255, 255, 255);                  
         position: absolute;  
-        top: 45%;
+        top: -10%;
         left: 50%;                    
         transform: translate(-50%, -50%); 
     }
