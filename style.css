@@ -168,6 +168,7 @@ footer > p {
     display: none;
 }
 
+/* Pour les grands écrans, ordinateurs */
 @media (max-width: 1700px) {
     .total-column {
         width: 40vw; 
@@ -184,6 +185,8 @@ footer > p {
     }
 }
 
+/* Pour les écrans de tablettes en mode paysage
+   Exemples : iPad Pro en mode paysage, grandes tablettes */
 @media (max-width: 992px) {
     .grid-container {
         margin: 30px 0 0 0;
@@ -210,6 +213,8 @@ footer > p {
     }
 }
 
+/* Pour les écrans de petites tablettes, grands smartphones en mode portrait
+   Exemples : iPad Mini, iPhone Plus, Google Pixel 6/7 */
 @media (max-width: 768px) {
     html {
         height: 460vh;
@@ -298,6 +303,8 @@ footer > p {
     }
 }
 
+/* Pour les écrans de petits smartphones 
+   Exemples : iPhone 12 Mini, Galaxy S8/S9 */
 @media (max-width: 576px) {
     html {
         height: 570vh;
@@ -395,6 +402,8 @@ footer > p {
     }
 }
 
+/* Pour les écrans de très petits smartphones
+   Exemples : iPhone SE (2020), iPhone 5, Galaxy A01 */
 @media (max-width: 376px) {
     html {
         height: 720vh;
@@ -506,6 +515,8 @@ footer > p {
     }
 }
 
+/* Pour les écrans de plus petits smartphones) 
+   Exemples : iPhone SE (1ère génération), Galaxy J1 */
 @media (max-width: 345px) {
     html {
         height: 400vh;
@@ -605,14 +616,164 @@ footer > p {
     }
 }
 
-@media (min-height: 1024px) {
-    .delete-total-group {
+/* Pour les écrans de très petits appareils 
+   Exemples : iPhone 5S, Galaxy Ace 4 */
+@media (max-width: 321px) {
+    html {
         display: none;
     }
 }
 
-@media (max-width: 321px) {
-    html {
+/* iPhone SE (2020) */
+@media (min-height: 667px) {
+    .cta-open {
+        position: fixed;
+        right: 0;
+        bottom: 132px;
+        width: 40px;
+        height: 50vh;
+        background-color: #3498db; 
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 0.8;
+    }
+}
+
+/* Google Pixel 6a */
+@media (min-height: 780px) {
+    .cta-open {
+        position: fixed;
+        right: 0;
+        bottom: 132px;
+        width: 40px;
+        height: 50vh;
+        background-color: #3498db; 
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 0.8;
+    }
+}
+
+/* iPhone 12, 13, 14 */
+@media (min-height: 844px) {
+    .cta-open {
+        position: fixed;
+        right: 0;
+        bottom: 132px;
+        width: 40px;
+        height: 50vh;
+        background-color: #3498db; 
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 0.1;
+    }
+}
+
+/* iPhone 12/13/14 Pro Max */
+@media (min-height: 926px) {
+    .cta-open {
+        position: fixed;
+        right: 0;
+        bottom: 132px;
+        width: 40px;
+        height: 50vh;
+        background-color: #3498db; 
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 0.8;
+    }
+}
+
+/* Samsung Galaxy S21/S22/S23 */
+@media (min-height: 900px) {
+    .cta-open {
+        position: fixed;
+        right: 0;
+        bottom: 132px;
+        width: 40px;
+        height: 50vh;
+        background-color: #3498db; 
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 0.8;
+    }
+}
+
+/* OnePlus 9/10 Pro */
+@media (min-height: 915px) {
+    .cta-open {
+        position: fixed;
+        right: 0;
+        bottom: 132px;
+        width: 40px;
+        height: 45vh;
+        background-color: #3498db; 
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 0;
+    }
+}
+
+/* iPad Mini (6e génération) */
+@media (min-height: 926px) {
+    .cta-open {
+        position: fixed;
+        right: 0;
+        bottom: 132px;
+        width: 40px;
+        height: 40vh;
+        background-color: #3498db; 
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 0;
+    }
+}
+
+/* Pour les grands écrans, tablettes */
+@media (min-height: 1024px) {
+    .delete-total-group {
         display: none;
     }
 }
