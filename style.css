@@ -357,22 +357,6 @@ footer > p {
  
     .dark {
         display: none;
-        position: fixed; 
-        right: 0; 
-        top: 720px; 
-        padding: 20px;
-        margin: 0; 
-        width: 100vw; 
-        height: 50vh; 
-        max-height: 80vh; 
-        z-index: 1000;
-        background-color: rgba(77, 77, 77, 0.918);
-        opacity: 0; 
-    }
-    
-    .dark:not(.hidden) {
-        display: block;
-        opacity: 1; 
     }
     
     .hidden {
@@ -396,7 +380,7 @@ footer > p {
         font-weight: bold;             
         color: rgb(255, 255, 255);                  
         position: absolute;  
-        top: 45%;
+        top: -8%;
         left: 50%;                    
         transform: translate(-50%, -50%); 
     }
@@ -699,7 +683,7 @@ footer > p {
 }
 
 /* OnePlus 9/10 Pro */
-@media (min-height: 915px) {
+@media (min-height: 914px) {
     .cta-open {
         height: 45vh;
         line-height: 0;
@@ -724,7 +708,4 @@ footer > p {
         top: 190px; 
         width: 23vw; 
     }
-
-    
-
 }
