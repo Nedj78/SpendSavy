@@ -440,6 +440,7 @@ footer > p {
         padding: 20px; 
         position: fixed; 
         right: 0; 
+        overflow: hidden;
     }
     
     .total-column:not(.hidden) {
