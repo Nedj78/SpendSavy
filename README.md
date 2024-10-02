@@ -11,6 +11,5 @@ Functionnal rules: Performing calculates monthly and annual expenses based on us
 Backend host server: No
 
 Frontend host servers: 
-
-[jekyll](https://nedj78.github.io/SpendSavy/) (Github pages)
-[now](https://spend-savy.vercel.app/) (Vercel platform)
+- [jekyll](https://nedj78.github.io/SpendSavy/) (Github pages)
+- [now](https://spend-savy.vercel.app/) (Vercel platform)
