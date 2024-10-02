@@ -275,3 +275,17 @@ ctaOpen.addEventListener('click', () => {
     ctaOpen.style.display = 'none';  
 });
 
+const employmentIncome = document.querySelector('.section1');
+const capitalIncome = document.querySelector('.section2');
+const nonprofesionalIncome = document.querySelector('.section3');
+const otherIncome = document.querySelector('.section4');
+const housingExpense = document.querySelector('.section5');
+const commservicesExpense = document.querySelector('.section6');
+const transportationExpense = document.querySelector('.section7');
+const healthExpense = document.querySelector('.section8');
+const foodExpense = document.querySelector('.section9');
+const educationExpense = document.querySelector('.section10');
+const leisureExpense = document.querySelector('.section11');
+const financesExpense = document.querySelector('.section12');
+const otherExpense = document.querySelector('.section13');
+
