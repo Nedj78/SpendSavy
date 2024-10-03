@@ -185,6 +185,14 @@ footer > p {
     display: none;
 }
 
+.hidden  {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
 /* Pour les grands écrans, ordinateurs */
 @media (max-width: 1700px) {
     .total-column {
@@ -279,11 +287,7 @@ footer > p {
     
     .hidden {
         display: none;
-    }
-
-    .visible {
-        display: block;
-    }
+    }  
 
     .delete-total-group {
         visibility: visible;
