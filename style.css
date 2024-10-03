@@ -99,17 +99,17 @@ legend h2 {
 }
 
 /* Form Styles */
-.form-group {
+.element-input {
     margin-bottom: 15px;
 }
 
-.form-group label {
+.element-input label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.form-group input {
+.element-input input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -117,7 +117,7 @@ legend h2 {
     box-sizing: border-box;
 }
 
-.form-group input:focus {
+.element-input input:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
@@ -425,7 +425,7 @@ footer > p {
         margin: 60px 0 0 0;
     }
 
-    .form-group input {
+    .element-input input {
         font-size: 0.9em; 
     }
 
@@ -546,7 +546,7 @@ footer > p {
         padding: 15px; 
     }
 
-    .form-group input {
+    .element-input input {
         font-size: 0.9em; 
     }
 
