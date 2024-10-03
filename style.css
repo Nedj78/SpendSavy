@@ -281,6 +281,10 @@ footer > p {
         display: none;
     }
 
+    .visible {
+        display: block;
+    }
+
     .delete-total-group {
         visibility: visible;
         width: 20px;                
