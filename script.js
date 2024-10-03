@@ -289,3 +289,7 @@ const leisureExpense = document.querySelector('.section11');
 const financesExpense = document.querySelector('.section12');
 const otherExpense = document.querySelector('.section13');
 
+function hideEmploymentIncome {
+    employmentIncome.classList.toggle('hidden');
+}
+employmentIncome.addEventListener('click', (hideEmploymentIncome);
