@@ -6,7 +6,7 @@ Responsiveness: small, medium and wide screens
 
 Framework: no
 
-Functionnal rules: Performing calculates monthly and annual expenses based on user input. Additionally, PDF reports of financial activities can be generated, which can be saved for personal records.
+Functionnal rules: Performing calculates monthly and annual expenses based on user input. Additionally, PDF reports of financial activities can be generated - using jsPDF library - which can be saved for personal records.
 
 Backend host server: No
 
