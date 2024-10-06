@@ -56,6 +56,38 @@ legend h2 {
     margin-bottom: 15px;
 }
 
+.employmentIncome,
+.capitalIncome,
+.nonprofessionalIncome,
+.otherIncome,
+.housingExpense,
+.commservicesExpense,
+.transportationExpense,
+.healthExpense,
+.foodExpense,
+.educationExpense,
+.leisureExpense,
+.financesExpense,
+.otherExpense {
+    cursor: pointer; 
+}
+
+.employmentIncome:hover,
+.capitalIncome:hover,
+.nonprofessionalIncome:hover,
+.otherIncome:hover,
+.housingExpense:hover,
+.commservicesExpense:hover,
+.transportationExpense:hover,
+.healthExpense:hover,
+.foodExpense:hover,
+.educationExpense:hover,
+.leisureExpense:hover,
+.financesExpense:hover,
+.otherExpense:hover {
+    color: #e0f7fa94; 
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -82,17 +114,17 @@ legend h2 {
 }
 
 /* Form Styles */
-.form-group {
+.element-input {
     margin-bottom: 15px;
 }
 
-.form-group label {
+.element-input label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.form-group input {
+.element-input input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -100,9 +132,9 @@ legend h2 {
     box-sizing: border-box;
 }
 
-.form-group input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+.element-input input:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
 button[type="submit"] {
@@ -158,6 +190,7 @@ footer > p {
 
 .cta-open {
     color: white;
+    pointer-events: none;
 }
 
 .dark {
@@ -168,6 +201,18 @@ footer > p {
     display: none;
 }
 
+.hidden  {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.cross {
+    display: none;
+}
+
 /* Pour les grands écrans, ordinateurs */
 @media (max-width: 1700px) {
     .total-column {
@@ -175,13 +220,17 @@ footer > p {
         top: 110px; 
         right: 0; 
     }
-    
-    .total-column.hidden {
-        opacity: 1; 
-    }
 
     .delete-total-group {
-        display: none;
+        display: block;
+    }
+
+    .cross {
+        display: block;
+    }
+
+    .language {
+        text-align: center;
     }
 }
 
@@ -257,12 +306,12 @@ footer > p {
         font-weight: bold;
         line-height: 0.1;
         margin: 0;
-
+        pointer-events: auto;
     }
     
     .hidden {
         display: none;
-    }
+    }  
 
     .delete-total-group {
         visibility: visible;
@@ -352,7 +401,7 @@ footer > p {
         font-weight: bold;
         line-height: 0.2;
         margin: 0;
-
+        pointer-events: auto;
     }
  
     .dark {
@@ -408,7 +457,7 @@ footer > p {
         margin: 60px 0 0 0;
     }
 
-    .form-group input {
+    .element-input input {
         font-size: 0.9em; 
     }
 
@@ -448,6 +497,7 @@ footer > p {
         font-size: 16px;
         font-weight: bold;
         line-height: 0.6;
+        pointer-events: auto;
     }
     
     .cta-open p {
@@ -529,7 +579,7 @@ footer > p {
         padding: 15px; 
     }
 
-    .form-group input {
+    .element-input input {
         font-size: 0.9em; 
     }
 
@@ -567,6 +617,7 @@ footer > p {
         font-size: 16px;
         font-weight: bold;
         line-height: 0.6;
+        pointer-events: auto;
     }
     
     .cta-open p {
@@ -615,6 +666,7 @@ footer > p {
     .cta-open {
         height: 50vh;
         line-height: 0.8;
+        pointer-events: auto;
     }
 }
 
@@ -623,6 +675,7 @@ footer > p {
     .cta-open {
         height: 50vh;
         line-height: 0.8;
+        pointer-events: auto;
     }
 }
 
@@ -631,30 +684,25 @@ footer > p {
     .cta-open {
         height: 50vh;
         line-height: 0;
+        pointer-events: auto;
     }
 
     .total-column {
         width: 50vw; 
         top: 280px; 
         padding: 15px; 
+        display: block;
     }
 
     .dark {
         display: none;
     }
-}
 
-/* iPhone X */
-@media (min-height: 812px) {
     .cta-open {
-        height: 40vh;
-        line-height: 0.8;
     }
 
-    .total-column {
-        width: 50vw; 
-        top: 260px; 
-        padding: 15px; 
+    .delete-total-group {
+        display: none;
     }
 }
 
@@ -663,6 +711,7 @@ footer > p {
     .cta-open {
         height: 50vh;
         line-height: 0.1;
+        pointer-events: auto;
     }
 }
 
@@ -707,5 +756,10 @@ footer > p {
     .total-column {
         top: 190px; 
         width: 23vw; 
+        display: block;
+    }
+
+    .cta-open {
+        display: none;
     }
 }

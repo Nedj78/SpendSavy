@@ -275,3 +275,37 @@ ctaOpen.addEventListener('click', () => {
     ctaOpen.style.display = 'none';  
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    function createToggle(divClass, inputsClass) {
+        const divElement = document.querySelector(divClass);
+        const inputsElement = document.querySelector(inputsClass); 
+
+        // Initialize the hidden state
+        inputsElement.classList.add('hidden');
+
+        function toggle() {
+            const isVisible = inputsElement.classList.toggle('hidden');
+            divElement.setAttribute('aria-expanded', !isVisible);
+        }
+
+        divElement.addEventListener('click', toggle);
+    }
+
+    // Revenues
+    createToggle('.employmentIncome', '.employment-inputs');
+    createToggle('.capitalIncome', '.capitalIncome-inputs');
+    createToggle('.nonprofessionalIncome', '.nonprofessionalIncome-inputs');
+    createToggle('.otherIncome', '.otherIncome-inputs');
+
+    // Expenses
+    createToggle('.housingExpense', '.housingExpense-inputs');
+    createToggle('.commservicesExpense', '.commservicesExpense-inputs');
+    createToggle('.transportationExpense', '.transportationExpense-inputs');
+    createToggle('.healthExpense', '.healthExpense-inputs');
+    createToggle('.foodExpense', '.foodExpense-inputs');
+    createToggle('.educationExpense', '.educationExpense-inputs');
+    createToggle('.leisureExpense', '.leisureExpense-inputs');
+    createToggle('.financesExpense', '.financesExpense-inputs');
+    createToggle('.otherExpense', '.otherExpense-inputs');
+});
