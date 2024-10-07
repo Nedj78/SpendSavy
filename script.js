@@ -316,6 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
     createToggle('.foodExpense', '.foodExpense-inputs');
     createToggle('.educationExpense', '.educationExpense-inputs');
     createToggle('.leisureExpense', '.leisureExpense-inputs');
+    createToggle('.wellnessExpense', '.wellnessExpense-inputs');
     createToggle('.financesExpense', '.financesExpense-inputs');
     createToggle('.otherExpense', '.otherExpense-inputs');
 });
