@@ -95,7 +95,8 @@ function generatePDF() {
     const transportation = document.getElementById('transportation').value || 0;
     const health = document.getElementById('health_expenses').value || 0;
     const healthInsurance = document.getElementById('health_insurance').value || 0;
-    const food = document.getElementById('food').value || 0;
+    const grocery = document.getElementById('grocery').value || 0;
+    const restaurant = document.getElementById('restaurant').value || 0;
     const education = document.getElementById('education').value || 0;
     const sport = document.getElementById('sport').value || 0;
     const vacation = document.getElementById('vacation').value || 0;
@@ -194,7 +195,8 @@ function generatePDF() {
         `Transportation: € ${transportation}`,
         `Health Expenses: € ${health}`,
         `Health Insurance: € ${healthInsurance}`,
-        `Food: € ${food}`,
+        `Grocery shopping: € ${grocery}`,
+        `Restaurant: € ${restaurant}`,
         `Education: € ${education}`,
         `Sport: € ${sport}`,
         `Vacation: € ${vacation}`,
