@@ -253,14 +253,6 @@ function generatePDF() {
     doc.setFont("Bradley Hand, cursive", "bold");
     doc.text(`Balance: € ${balance}`, 20, currentY);
 
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 768) { 
-        doc.setFontSize(10);
-    } else {
-        doc.setFontSize(12);
-    }
-
-
     const pdfDataUri = doc.output('datauristring');
 
     const newWindow = window.open();
