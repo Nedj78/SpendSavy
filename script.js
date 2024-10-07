@@ -93,13 +93,18 @@ function generatePDF() {
     const bankFees = document.getElementById('bank_fees').value || 0;
     const miscellaneous = document.getElementById('miscellaneous').value || 0;
     const transportation = document.getElementById('transportation').value || 0;
-    const healthExpenses = document.getElementById('health_expenses').value || 0;
+    const health = document.getElementById('health_expenses').value || 0;
     const healthInsurance = document.getElementById('health_insurance').value || 0;
     const food = document.getElementById('food').value || 0;
     const education = document.getElementById('education').value || 0;
     const sport = document.getElementById('sport').value || 0;
     const vacation = document.getElementById('vacation').value || 0;
     const clothingShoes = document.getElementById('clothing_shoes').value || 0;
+    const books = document.getElementById('books').value || 0;
+    const outings = document.getElementById('outings').value || 0;
+    const cosmetic = document.getElementById('costmetic').value || 0;
+    const hairstyle = document.getElementById('hairdresser').value || 0;
+    const care = document.getElementById('care').value || 0;
     const loansRepayments = document.getElementById('loans_repayments').value || 0;
     const savingsInvestments = document.getElementById('savings_investments').value || 0;
     const incomeTaxes = document.getElementById('income_taxes').value || 0;
@@ -127,7 +132,7 @@ function generatePDF() {
 
     // Display current date
     doc.setFontSize(12);
-    doc.setFont("helvetica", "normal");
+    doc.setFont("Bradley Hand, cursive", "normal");
     doc.text(`${formattedDate}`, leftColumnX, currentY); 
     currentY += 10; 
 
@@ -138,10 +143,10 @@ function generatePDF() {
 
     // Section Revenus
     doc.setFontSize(14);
-    doc.setFont("helvetica", "bold");
+    doc.setFont("Bradley Hand, cursive", "bold");
     doc.text("Incomes", leftColumnX, currentY); 
     currentY += 10; 
-    doc.setFont("helvetica", "normal");
+    doc.setFont("Bradley Hand, cursive", "normal");
     doc.setFontSize(12);
     const incomeEntries = [
         `Salary: € ${salary}`,
@@ -169,10 +174,10 @@ function generatePDF() {
     // Section Expenses
     currentY = 40;
     doc.setFontSize(14);
-    doc.setFont("helvetica", "bold");
+    doc.setFont("Bradley Hand, cursive", "bold");
     doc.text("Expenses", rightColumnX, currentY); 
     currentY += 10; 
-    doc.setFont("helvetica", "normal");
+    doc.setFont("Bradley Hand, cursive", "normal");
     doc.setFontSize(12);
     const expenseEntries = [
         `Rent/Mortgage: € ${rentMortgage}`,
@@ -187,13 +192,18 @@ function generatePDF() {
         `Bank Fees: € ${bankFees}`,
         `Miscellaneous services: € ${miscellaneous}`,
         `Transportation: € ${transportation}`,
-        `Health Expenses: € ${healthExpenses}`,
+        `Health Expenses: € ${health}`,
         `Health Insurance: € ${healthInsurance}`,
         `Food: € ${food}`,
         `Education: € ${education}`,
         `Sport: € ${sport}`,
         `Vacation: € ${vacation}`,
         `Clothing & Shoes: € ${clothingShoes}`,
+        `Books: € ${books}`,
+        `Outings: € ${outings}`,
+        `Cosmetic: € ${cosmetic}`,
+        `Hairdresser: € ${outings}`,
+        `Esthetic care: € ${care}`,
         `Loans/Repayments: € ${loansRepayments}`,
         `Savings/Investments: € ${savingsInvestments}`,
         `Income Taxes: € ${incomeTaxes}`,
@@ -211,10 +221,10 @@ function generatePDF() {
     currentY = 30; 
     doc.addPage();
     doc.setFontSize(14);
-    doc.setFont("helvetica", "bold");
+    doc.setFont("Bradley Hand, cursive", "bold");
     doc.text("Summary", 20, currentY); 
     currentY += 10; 
-    doc.setFont("helvetica", "normal");
+    doc.setFont("Bradley Hand, cursive", "normal");
     doc.setFontSize(12);
     doc.text(`Total Income: € ${totalIncome}`, 20, currentY);
     currentY += 10;
@@ -240,7 +250,7 @@ function generatePDF() {
         doc.setTextColor(255, 0, 0); // Red
     }
 
-    doc.setFont("helvetica", "bold");
+    doc.setFont("Bradley Hand, cursive", "bold");
     doc.text(`Balance: € ${balance}`, 20, currentY);
 
     const pdfDataUri = doc.output('datauristring');
