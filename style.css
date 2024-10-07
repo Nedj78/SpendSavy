@@ -56,38 +56,6 @@ legend h2 {
     margin-bottom: 15px;
 }
 
-.employmentIncome,
-.capitalIncome,
-.nonprofessionalIncome,
-.otherIncome,
-.housingExpense,
-.commservicesExpense,
-.transportationExpense,
-.healthExpense,
-.foodExpense,
-.educationExpense,
-.leisureExpense,
-.financesExpense,
-.otherExpense {
-    cursor: pointer; 
-}
-
-.employmentIncome:hover,
-.capitalIncome:hover,
-.nonprofessionalIncome:hover,
-.otherIncome:hover,
-.housingExpense:hover,
-.commservicesExpense:hover,
-.transportationExpense:hover,
-.healthExpense:hover,
-.foodExpense:hover,
-.educationExpense:hover,
-.leisureExpense:hover,
-.financesExpense:hover,
-.otherExpense:hover {
-    color: #e0f7fa94; 
-}
-
 .grid-container {
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -132,9 +100,9 @@ legend h2 {
     box-sizing: border-box;
 }
 
-.element-input input:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+.form-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 button[type="submit"] {
@@ -198,18 +166,6 @@ footer > p {
 }
 
 .sorry-msg {
-    display: none;
-}
-
-.hidden  {
-    display: none;
-}
-
-.visible {
-    display: block;
-}
-
-.cross {
     display: none;
 }
 
