@@ -133,7 +133,7 @@ function generatePDF() {
 
     // Display current date
     doc.setFontSize(12);
-    doc.setFont("Bradley Hand, cursive", "normal");
+    doc.setFont("helvetica", "normal");
     doc.text(`${formattedDate}`, leftColumnX, currentY); 
     currentY += 10; 
 
@@ -144,10 +144,10 @@ function generatePDF() {
 
     // Section Revenus
     doc.setFontSize(14);
-    doc.setFont("Bradley Hand, cursive", "bold");
+    doc.setFont("helvetica", "bold");
     doc.text("Incomes", leftColumnX, currentY); 
     currentY += 10; 
-    doc.setFont("Bradley Hand, cursive", "normal");
+    doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
     const incomeEntries = [
         `Salary: € ${salary}`,
@@ -175,10 +175,10 @@ function generatePDF() {
     // Section Expenses
     currentY = 40;
     doc.setFontSize(14);
-    doc.setFont("Bradley Hand, cursive", "bold");
+    doc.setFont("helvetica", "bold");
     doc.text("Expenses", rightColumnX, currentY); 
     currentY += 10; 
-    doc.setFont("Bradley Hand, cursive", "normal");
+    doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
     const expenseEntries = [
         `Rent/Mortgage: € ${rentMortgage}`,
@@ -223,10 +223,10 @@ function generatePDF() {
     currentY = 30; 
     doc.addPage();
     doc.setFontSize(14);
-    doc.setFont("Bradley Hand, cursive", "bold");
+    doc.setFont("helvetica", "bold");
     doc.text("Summary", 20, currentY); 
     currentY += 10; 
-    doc.setFont("Bradley Hand, cursive", "normal");
+    doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
     doc.text(`Total Income: € ${totalIncome}`, 20, currentY);
     currentY += 10;
@@ -234,25 +234,15 @@ function generatePDF() {
     currentY += 10;
 
     // Convert results to number
-    totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
-    totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
-
+    totalIncome = parseFloat(totalIncomeElement.textContent) || 0;
+    totalExpenses = parseFloat(totalExpensesElement.textContent) || 0;
     balance = totalIncome - totalExpenses;
+
+    doc.setTextColor(balance > 0 ? 0 : balance < 0 ? 255 : 0, 128, 0);
  
     balance = parseFloat(balance); 
 
-    if (balance > 0) {
-        console.log("Le solde est positif.");
-        doc.setTextColor(0, 128, 0); // Green
-    } else if (balance === 0) {
-        console.log("Le solde est zéro.");
-        doc.setTextColor(0, 0, 0); // Black
-    } else {
-        console.log("Le solde est négatif.");
-        doc.setTextColor(255, 0, 0); // Red
-    }
-
-    doc.setFont("Bradley Hand, cursive", "bold");
+    doc.setFont("helvetica", "bold");
     doc.text(`Balance: € ${balance}`, 20, currentY);
 
     const pdfDataUri = doc.output('datauristring');
