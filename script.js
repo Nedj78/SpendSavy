@@ -314,11 +314,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const inputElements = document.querySelectorAll('input[type="text"]'); 
+    const inputElements = document.querySelectorAll('input[type="number"]'); 
 
     inputElements.forEach(input => {
         input.addEventListener('input', function () {
-            this.value = this.value.replace(/[a-zA-Z]/g, '');
+            this.value = this.value.replace(/[^\d]/g, ''); 
         });
     });
 });
