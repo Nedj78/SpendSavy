@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     calculateTotalIncome();
     calculateTotalExpenses();
-});
 
-document.getElementById('download-pdf').addEventListener('click', generatePDF);
+    document.getElementById('download-pdf').addEventListener('click', generatePDF);
+});
 
 function generatePDF() {
     const { jsPDF } = window.jspdf;
@@ -140,7 +140,7 @@ function generatePDF() {
 
     // Top title content
     doc.setFontSize(18);
-    doc.text("SpendSavy - Financial Report", 20, 20);
+    doc.text("Spend$avy - Financial Report", 20, 20);
 
     // Section Revenus
     doc.setFontSize(14);
@@ -261,7 +261,7 @@ function generatePDF() {
     newWindow.document.write(`
         <html>
             <head>
-                <title>SpendSavy report</title> 
+                <title>Spend$avy report</title> 
             </head>
             <body>
                 <iframe width="100%" height="100%" src="${pdfDataUri}"></iframe>
