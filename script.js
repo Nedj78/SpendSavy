@@ -312,3 +312,13 @@ document.addEventListener("DOMContentLoaded", function () {
     createToggle('.financesExpense', '.financesExpense-inputs');
     createToggle('.otherExpense', '.otherExpense-inputs');
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const inputElements = document.querySelectorAll('input[type="text"]'); 
+
+    inputElements.forEach(input => {
+        input.addEventListener('input', function () {
+            this.value = this.value.replace(/[a-zA-Z]/g, '');
+        });
+    });
+});
