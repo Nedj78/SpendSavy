@@ -15,7 +15,7 @@
 
         <!-- Header -->
         <header>
-            <h1>SpendSavy - Suivez vos finances 💰</h1>
+            <h1>Spend$avy - Suivez vos finances 💰</h1>
         </header>
 
         <!-- Main Content Grid -->
@@ -211,11 +211,15 @@
 
                         <!-- Food -->
                         <div class="expense-group">
-                            <h3 class="foodExpense" aria-expanded="false">Food</h3>
+                            <h3 class="foodExpense" aria-expanded="false">Nourriture</h3>
                             <div class="foodExpense-inputs"> <!-- Wrapper -->
-                                <div class="element-input" id="food-input">
-                                    <label for="food">Alimentation (€):</label>
-                                    <input type="number" id="food" name="food" step="1.00" min="0.00">
+                                <div class="element-input" id="grocery-input">
+                                    <label for="grocery">Courses alimentaires (€):</label>
+                                    <input type="number" id="grocery" name="grocery" step="1.00" min="0.00">
+                                </div>
+                                    <div class="element-input" id="restaurant-input">
+                                    <label for="restaurant">Restaurant (€):</label>
+                                    <input type="number" id="restaurant" name="restaurant" step="1.00" min="0.00">
                                 </div>
                             </div>
                         </div>
@@ -225,7 +229,7 @@
                             <h3 class="educationExpense" aria-expanded="false">Éducation</h3>
                             <div class="educationExpense-inputs"> <!-- Wrapper -->
                                 <div class="element-input" id="education-input">
-                                    <label for="education">Éducation (frais scolaires, fournitures scolaires) (€):</label>
+                                    <label for="education">Éducation (frais & fournitures scolaires, cours particuliers etc) (€):</label>
                                     <input type="number" id="education" name="education" step="1.00" min="0.00">
                                 </div>
                             </div>
@@ -244,8 +248,34 @@
                                     <input type="number" id="vacation" name="vacation" step="1.00" min="0.00">
                                 </div>
                                 <div class="element-input" id="clothing-shoes-input">
-                                    <label for="clothing_shoes">Vêtements (€):</label>
+                                    <label for="clothing_shoes">Vêtements & chaussures (€):</label>
                                     <input type="number" id="clothing_shoes" name="clothing_shoes" step="1.00" min="0.00">
+                                </div>
+                                    <div class="element-input" id="books-input">
+                                    <label for="books">Lecture (€):</label>
+                                    <input type="number" id="books" name="books" step="1.00" min="0.00">
+                                </div>
+                                    <div class="element-input" id="outings-input">
+                                    <label for="outings">Sorties (cinéma, théâtre, musée, festival etc) (€):</label>
+                                    <input type="number" id="outings" name="outings" step="1.00" min="0.00">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="expense-group">
+                            <h3 class="wellnessExpense" aria-expanded="false">Beauté & bien-être</h3>
+                            <div class="wellnessExpense-inputs"> <!-- Wrapper -->
+                                <div class="element-input" id="cosmetic-input">
+                                    <label for="cosmetic">Cosmétique (€):</label>
+                                    <input type="number" id="cosmetic" name="cosmetic" step="1.00" min="0.00">
+                                </div>
+                                <div class="element-input" id="hairdresser-input">
+                                    <label for="hairdresser">Coiffeur (€):</label>
+                                    <input type="number" id="hairdresser" name="hairdresser" step="1.00" min="0.00">
+                                </div>
+                                <div class="element-input" id="care-input">
+                                    <label for="care">Soins esthétiques (produits de beauté, parfums etc) (€):</label>
+                                    <input type="number" id="care" name="care" step="1.00" min="0.00">
                                 </div>
                             </div>
                         </div>
@@ -298,18 +328,18 @@
                     <p class="cross">&#x2715;</p>
                 </div>
                 <div class="total-group">
-                    <label>Total Income:</label>
+                    <label>Revenus totaux:</label>
                     <div id="total-income">0.00</div>
                 </div>
                 <div class="total-group">
-                    <label>Total Expenses:</label>
+                    <label>Dépenses totales:</label>
                     <div id="total-expenses">0.00</div>
                 </div>
                 <div class="total-group">
-                    <label>Balance:</label>
+                    <label>Équilibre:</label>
                     <div id="balance">0.00</div>
                 </div>
-                <button id="download-pdf">Download PDF Report</button> 
+                <button id="download-pdf">Télécharger le rapport pdf</button> 
             </div>
 
             <div class="cta-open">
@@ -334,7 +364,7 @@
         <!-- Footer -->
         <footer>
             <p class="language"><a href="./index.html">🇬🇧 version</a></p>
-            <p>&copy; © 2024 SpendSavy - Tous droits réservés</p>
+            <p>© 2024 Spend$avy - Tous droits réservés</p>
         </footer>
     </div>
 

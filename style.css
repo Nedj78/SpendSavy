@@ -134,6 +134,8 @@ button[type="submit"]:hover {
 
 .total-column {
     position: fixed; 
+    display: flex;
+    flex-direction: column;
     right: 0; 
     top: 145px; 
     background-color: #f0f8ff;
@@ -464,7 +466,7 @@ footer > p {
         display: none;
         position: fixed; 
         right: 0; 
-        top: 510px; 
+        top: 505px; 
         padding: 20px;
         margin: 0; 
         width: 100vw; 
@@ -584,7 +586,7 @@ footer > p {
         display: none;
         position: fixed; 
         right: 0; 
-        top: 720px; 
+        top: 715px; 
         padding: 20px;
         margin: 0; 
         width: 100vw; 
@@ -605,7 +607,7 @@ footer > p {
     }
 
     .delete-total-group {
-        visibility: visible;
+        display: block;
     }
 }
 
@@ -654,9 +656,6 @@ footer > p {
         display: none;
     }
 
-    .cta-open {
-    }
-
     .delete-total-group {
         display: none;
     }
@@ -668,6 +667,15 @@ footer > p {
         height: 50vh;
         line-height: 0.1;
         pointer-events: auto;
+        z-index: 1000;
+    }
+    
+    .total-column.hidden {
+        pointer-events: none;
+    }
+
+    .delete-total-group {
+        display: block;
     }
 }
 
