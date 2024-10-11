@@ -104,11 +104,6 @@ function generatePDF() {
     const sport = document.getElementById('sport').value || 0;
     const vacation = document.getElementById('vacation').value || 0;
     const clothingShoes = document.getElementById('clothing_shoes').value || 0;
-    const books = document.getElementById('books').value || 0;
-    const outings = document.getElementById('outings').value || 0;
-    const cosmetic = document.getElementById('cosmetic').value || 0;
-    const hairstyle = document.getElementById('hairdresser').value || 0;
-    const care = document.getElementById('care').value || 0;
     const loansRepayments = document.getElementById('loans_repayments').value || 0;
     const savingsInvestments = document.getElementById('savings_investments').value || 0;
     const incomeTaxes = document.getElementById('income_taxes').value || 0;
@@ -192,37 +187,31 @@ function generatePDF() {
     doc.setFontSize(12);
 
     const expenseEntries = [
-        { label: "Rent/Mortgage", value: rentMortgage },
-        { label: "Home Insurance", value: homeInsurance },
-        { label: "Electricity", value: electricity },
-        { label: "Gas", value: gas },
-        { label: "Water", value: water },
-        { label: "Local Taxes", value: localTaxes },
-        { label: "Home Maintenance", value: homeMaintenance },
-        { label: "Phone Subscription", value: phoneSubscription },
-        { label: "Internet & TV", value: internetTv },
-        { label: "Bank Fees", value: bankFees },
-        { label: "Miscellaneous services", value: miscellaneous },
-        { label: "Transportation", value: transportation },
-        { label: "Health Expenses", value: health },
-        { label: "Health Insurance", value: healthInsurance },
-        { label: "Grocery shopping", value: grocery },
-        { label: "Restaurant", value: restaurant },
-        { label: "Education", value: education },
-        { label: "Sport", value: sport },
-        { label: "Vacation", value: vacation },
-        { label: "Clothing & Shoes", value: clothingShoes },
-        { label: "Books", value: books },
-        { label: "Outings", value: outings },
-        { label: "Cosmetic", value: cosmetic },
-        { label: "Hairdresser", value: hairstyle },
-        { label: "Esthetic care", value: care },
-        { label: "Loans/Repayments", value: loansRepayments },
-        { label: "Savings/Investments", value: savingsInvestments },
-        { label: "Income Taxes", value: incomeTaxes },
-        { label: "Gifts/Donations", value: giftsDonations },
-        { label: "Cleaning Products", value: cleaningProducts },
-        { label: "Car Maintenance/Repairs", value: carMaintenanceRepairs }
+        `Rent/Mortgage: € ${rentMortgage}`,
+        `Home Insurance: € ${homeInsurance}`,
+        `Electricity: € ${electricity}`,
+        `Gas: € ${gas}`,
+        `Water: € ${water}`,
+        `Local Taxes: € ${localTaxes}`,
+        `Home Maintenance: € ${homeMaintenance}`,
+        `Phone Subscription: € ${phoneSubscription}`,
+        `Internet & TV: € ${internetTv}`,
+        `Bank Fees: € ${bankFees}`,
+        `Miscellaneous services: € ${miscellaneous}`,
+        `Transportation: € ${transportation}`,
+        `Health Expenses: € ${healthExpenses}`,
+        `Health Insurance: € ${healthInsurance}`,
+        `Food: € ${food}`,
+        `Education: € ${education}`,
+        `Sport: € ${sport}`,
+        `Vacation: € ${vacation}`,
+        `Clothing & Shoes: € ${clothingShoes}`,
+        `Loans/Repayments: € ${loansRepayments}`,
+        `Savings/Investments: € ${savingsInvestments}`,
+        `Income Taxes: € ${incomeTaxes}`,
+        `Gifts/Donations: € ${giftsDonations}`,
+        `Cleaning Products: € ${cleaningProducts}`,
+        `Car Maintenance/Repairs: € ${carMaintenanceRepairs}`
     ];
 
     expenseEntries.forEach(entry => {
@@ -251,21 +240,25 @@ function generatePDF() {
     currentY += 10;
 
     // Convert results to number
-    totalIncome = parseFloat(document.getElementById("total-income").textContent) || 0;
-    totalExpenses = parseFloat(document.getElementById("total-expenses").textContent) || 0;
-    balance = totalIncome - totalExpenses;
+    totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
+    totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
 
-    if (balance > 0) {
-        doc.setTextColor(0, 128, 0); // Green
-    } else if (balance < 0) {
-        doc.setTextColor(255, 0, 0); // Red
-    } else {
-        doc.setTextColor(0, 0, 0); // Black
-    }
-     
+    balance = totalIncome - totalExpenses;
+ 
     balance = parseFloat(balance); 
 
-    doc.setFont("helvetica	", "bold");
+    if (balance > 0) {
+        console.log("Le solde est positif.");
+        doc.setTextColor(0, 128, 0); // Green
+    } else if (balance === 0) {
+        console.log("Le solde est zéro.");
+        doc.setTextColor(0, 0, 0); // Black
+    } else {
+        console.log("Le solde est négatif.");
+        doc.setTextColor(255, 0, 0); // Red
+    }
+
+    doc.setFont("helvetica", "bold");
     doc.text(`Balance: € ${balance}`, 20, currentY);
 
     const pdfDataUri = doc.output('datauristring');
@@ -334,6 +327,16 @@ document.addEventListener("DOMContentLoaded", function () {
     createToggle('.wellnessExpense', '.wellnessExpense-inputs');
     createToggle('.financesExpense', '.financesExpense-inputs');
     createToggle('.otherExpense', '.otherExpense-inputs');
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const inputElements = document.querySelectorAll('input[type="number"]'); 
+
+    inputElements.forEach(input => {
+        input.addEventListener('input', function () {
+            this.value = this.value.replace(/[^\d]/g, ''); 
+        });
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
