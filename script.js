@@ -104,6 +104,11 @@ function generatePDF() {
     const sport = document.getElementById('sport').value || 0;
     const vacation = document.getElementById('vacation').value || 0;
     const clothingShoes = document.getElementById('clothing_shoes').value || 0;
+    const books = document.getElementById('books').value || 0;
+    const outings = document.getElementById('outings').value || 0;
+    const cosmetic = document.getElementById('cosmetic').value || 0;
+    const hairstyle = document.getElementById('hairdresser').value || 0;
+    const care = document.getElementById('care').value || 0;
     const loansRepayments = document.getElementById('loans_repayments').value || 0;
     const savingsInvestments = document.getElementById('savings_investments').value || 0;
     const incomeTaxes = document.getElementById('income_taxes').value || 0;
@@ -131,7 +136,7 @@ function generatePDF() {
 
     // Display current date
     doc.setFontSize(12);
-    doc.setFont("helvetica	", "normal");
+    doc.setFont("helvetica", "normal");
     doc.text(`${formattedDate}`, leftColumnX, currentY); 
     currentY += 10; 
 
@@ -186,35 +191,41 @@ function generatePDF() {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
 
-    const expenseEntries = [
-        `Rent/Mortgage: € ${rentMortgage}`,
-        `Home Insurance: € ${homeInsurance}`,
-        `Electricity: € ${electricity}`,
-        `Gas: € ${gas}`,
-        `Water: € ${water}`,
-        `Local Taxes: € ${localTaxes}`,
-        `Home Maintenance: € ${homeMaintenance}`,
-        `Phone Subscription: € ${phoneSubscription}`,
-        `Internet & TV: € ${internetTv}`,
-        `Bank Fees: € ${bankFees}`,
-        `Miscellaneous services: € ${miscellaneous}`,
-        `Transportation: € ${transportation}`,
-        `Health Expenses: € ${healthExpenses}`,
-        `Health Insurance: € ${healthInsurance}`,
-        `Food: € ${food}`,
-        `Education: € ${education}`,
-        `Sport: € ${sport}`,
-        `Vacation: € ${vacation}`,
-        `Clothing & Shoes: € ${clothingShoes}`,
-        `Loans/Repayments: € ${loansRepayments}`,
-        `Savings/Investments: € ${savingsInvestments}`,
-        `Income Taxes: € ${incomeTaxes}`,
-        `Gifts/Donations: € ${giftsDonations}`,
-        `Cleaning Products: € ${cleaningProducts}`,
-        `Car Maintenance/Repairs: € ${carMaintenanceRepairs}`
+    const expensesEntries = [
+        { label: "Rent/Mortgage", value: rentMortgage },
+        { label: "Home Insurance", value: homeInsurance },
+        { label: "Electricity", value: electricity },
+        { label: "Gas", value: gas },
+        { label: "Water", value: water },
+        { label: "Local Taxes", value: localTaxes },
+        { label: "Home Maintenance", value: homeMaintenance },
+        { label: "Phone Subscription", value: phoneSubscription },
+        { label: "Internet/TV", value: internetTv },
+        { label: "Bank Fees", value: bankFees },
+        { label: "Miscellaneous", value: miscellaneous },
+        { label: "Transportation", value: transportation },
+        { label: "Health Expenses", value: health },
+        { label: "Health Insurance", value: healthInsurance },
+        { label: "Grocery", value: grocery },
+        { label: "Restaurant", value: restaurant },
+        { label: "Education", value: education },
+        { label: "Sport", value: sport },
+        { label: "Vacation", value: vacation },
+        { label: "Clothing/Shoes", value: clothingShoes },
+        { label: "Books", value: books },
+        { label: "Outings", value: outings },
+        { label: "Cosmetic", value: cosmetic },
+        { label: "Hairdresser", value: hairstyle },
+        { label: "Care", value: care },
+        { label: "Loans Repayments", value: loansRepayments },
+        { label: "Savings/Investments", value: savingsInvestments },
+        { label: "Income Taxes", value: incomeTaxes },
+        { label: "Gifts/Donations", value: giftsDonations },
+        { label: "Cleaning Products", value: cleaningProducts },
+        { label: "Car Maintenance/Repairs", value: carMaintenanceRepairs },
     ];
 
-    expenseEntries.forEach(entry => {
+    expensesEntries.forEach(entry => {
         if (entry.value > 0) {
             doc.setTextColor(255, 0, 0); // Red
         } else {
@@ -229,10 +240,10 @@ function generatePDF() {
     currentY = 30; 
     doc.addPage();
     doc.setFontSize(14);
-    doc.setFont("helvetica	", "bold");
+    doc.setFont("helvetica", "bold");
     doc.text("Summary", 20, currentY); 
     currentY += 10; 
-    doc.setFont("helvetica	", "normal");
+    doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
     doc.text(`Total Income: € ${totalIncome}`, 20, currentY);
     currentY += 10;
@@ -330,21 +341,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const inputElements = document.querySelectorAll('input[type="number"]'); 
+    const inputElements = document.querySelectorAll('input[type="number"]');
 
     inputElements.forEach(input => {
         input.addEventListener('input', function () {
-            this.value = this.value.replace(/[^\d]/g, ''); 
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const inputElements = document.querySelectorAll('input[type="number"]'); 
-
-    inputElements.forEach(input => {
-        input.addEventListener('input', function () {
-            this.value = this.value.replace(/[^\d]/g, ''); 
+            this.value.replace(/[^0-9.,]/g, '');
         });
     });
 });
