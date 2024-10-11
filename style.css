@@ -1,4 +1,8 @@
 /* General Styles */
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -515,6 +519,24 @@ footer > p {
 @media (max-width: 310px) {
     html {
         display: none;
+    }
+}
+
+/* iPhone SE (2020) */
+@media (min-height: 400px) and (max-height: 666px) {
+    .cta-open {
+        height: 55vh;
+        line-height: 0;
+        pointer-events: auto;
+    }
+    
+    .total-column {
+        display: none;
+        width: 95vw;
+        top: 370px;
+        padding: 15px;
+        position: fixed;
+        right: 0;
     }
 }
 
