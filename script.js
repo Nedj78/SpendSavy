@@ -61,10 +61,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function generatePDF() {
     const { jsPDF } = window.jspdf;
+    // Vérifier la taille de l'écran
+    const screenWidth = window.innerWidth;
+
+    // Ajuster le format de la page en fonction de la taille de l'écran
+    let pageWidth = screenWidth < 768 ? 210 : 210;  // Format A4 ou une autre largeur si nécessaire
+    let pageHeight = screenWidth < 768 ? 297 : 370; // Format plus grand pour les grands écrans
+
     const doc = new jsPDF({
         orientation: "portrait", 
         unit: "mm", 
-        format: [210, 370], 
+        format: [pageWidth, pageHeight], 
     });
     // Incomes
     const salary = document.getElementById('salary').value || 0;
@@ -140,7 +147,6 @@ function generatePDF() {
     doc.text(`${formattedDate}`, leftColumnX, currentY); 
     currentY += 10; 
 
-
     // Top title content
     doc.setFontSize(18);
     doc.text("Spend$avy - Financial Report", 20, 20);
@@ -181,6 +187,11 @@ function generatePDF() {
         doc.text(`${entry.label}: € ${entry.value}`, leftColumnX, currentY);
         currentY += 10; 
     });
+
+    if (currentY > pageHeight - 20) {
+        doc.addPage();
+        currentY = 20; // Réinitialiser la hauteur après une nouvelle page
+    }
 
     // Section Expenses
     currentY = 40;
@@ -235,6 +246,11 @@ function generatePDF() {
         doc.text(`${entry.label}: € ${entry.value}`, rightColumnX, currentY);
         currentY += 10; 
     });
+
+    if (currentY > pageHeight - 20) {
+        doc.addPage();
+        currentY = 20; // Réinitialiser la hauteur pour la nouvelle page
+    }
 
     // Summary
     currentY = 30; 
