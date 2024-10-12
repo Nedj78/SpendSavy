@@ -1,10 +1,15 @@
+const totalIncomeElement = document.getElementById("total-income");
+const totalExpensesElement = document.getElementById("total-expenses");
+
+const balanceElement = document.getElementById("balance");
+
+let totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
+let totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
+let balance = totalIncome - totalExpenses;
+
 document.addEventListener("DOMContentLoaded", function () {      
     const incomeInputs = document.querySelectorAll('.income-section input[type="number"]');
     const expenseInputs = document.querySelectorAll('.expenses-section input[type="number"]');
-    
-    const totalIncomeElement = document.getElementById("total-income");
-    const totalExpensesElement = document.getElementById("total-expenses");
-    const balanceElement = document.getElementById("balance");
 
     const calculateTotalIncome = () => {
         let totalIncome = 0;
@@ -27,9 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const updateBalance = () => {
-        const totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
-        const totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
-        const balance = totalIncome - totalExpenses;
+        totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
+        totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
+        balance = totalIncome - totalExpenses;
         balanceElement.innerText = balance.toFixed(2) + " " + "€";
 
         balanceElement.style.fontWeight = 'bolder';
@@ -61,18 +66,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function generatePDF() {
     const { jsPDF } = window.jspdf;
-    // Vérifier la taille de l'écran
     const screenWidth = window.innerWidth;
 
-    // Ajuster le format de la page en fonction de la taille de l'écran
-    let pageWidth = screenWidth < 768 ? 210 : 210;  // Format A4 ou une autre largeur si nécessaire
-    let pageHeight = screenWidth < 768 ? 297 : 370; // Format plus grand pour les grands écrans
-
     const doc = new jsPDF({
-        orientation: "portrait", 
-        unit: "mm", 
-        format: [pageWidth, pageHeight], 
+        orientation: "portrait",
+        unit: 'mm',
+        format: "a4", 
     });
+    
     // Incomes
     const salary = document.getElementById('salary').value || 0;
     const bonuses = document.getElementById('bonuses').value || 0;
@@ -130,7 +131,8 @@ function generatePDF() {
 
     // Column positions
     const leftColumnX = 20;
-    const rightColumnX = 100; 
+    const rightColumnX = 80; 
+    const secondRightColumnX = 145;
     let currentY = 30; 
 
     // Get current date
@@ -145,7 +147,7 @@ function generatePDF() {
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
     doc.text(`${formattedDate}`, leftColumnX, currentY); 
-    currentY += 10; 
+    currentY += 20; 
 
     // Top title content
     doc.setFontSize(18);
@@ -188,13 +190,8 @@ function generatePDF() {
         currentY += 10; 
     });
 
-    if (currentY > pageHeight - 20) {
-        doc.addPage();
-        currentY = 20; // Réinitialiser la hauteur après une nouvelle page
-    }
-
     // Section Expenses
-    currentY = 40;
+    currentY = 50;
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
     doc.text("Expenses", rightColumnX, currentY); 
@@ -218,6 +215,28 @@ function generatePDF() {
         { label: "Health Expenses", value: health },
         { label: "Health Insurance", value: healthInsurance },
         { label: "Grocery", value: grocery },
+    ];
+
+    expensesEntries.forEach(entry => {
+        if (entry.value > 0) {
+            doc.setTextColor(255, 0, 0); // Red
+        } else {
+            doc.setTextColor(0, 0, 0); // Black
+        }
+
+        doc.text(`${entry.label}: € ${entry.value}`, rightColumnX, currentY);
+        currentY += 10; 
+    });
+
+    currentY = 50;
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("Expenses", rightColumnX, currentY); 
+    currentY += 10; 
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+
+    const secondExpensesEntries = [
         { label: "Restaurant", value: restaurant },
         { label: "Education", value: education },
         { label: "Sport", value: sport },
@@ -236,25 +255,19 @@ function generatePDF() {
         { label: "Car Maintenance/Repairs", value: carMaintenanceRepairs },
     ];
 
-    expensesEntries.forEach(entry => {
+    secondExpensesEntries.forEach(entry => {
         if (entry.value > 0) {
             doc.setTextColor(255, 0, 0); // Red
         } else {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, rightColumnX, currentY);
+        doc.text(`${entry.label}: € ${entry.value}`, secondRightColumnX, currentY);
         currentY += 10; 
     });
 
-    if (currentY > pageHeight - 20) {
-        doc.addPage();
-        currentY = 20; // Réinitialiser la hauteur pour la nouvelle page
-    }
-
     // Summary
-    currentY = 30; 
-    doc.addPage();
+    currentY = 220; 
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
     doc.text("Summary", 20, currentY); 
@@ -294,7 +307,7 @@ function generatePDF() {
     newWindow.document.write(`
         <html>
             <head>
-                <title>Spend$avy report</title> 
+                <title>SpendSavy report</title> 
             </head>
             <body>
                 <iframe width="100%" height="100%" src="${pdfDataUri}"></iframe>
@@ -361,7 +374,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     inputElements.forEach(input => {
         input.addEventListener('input', function () {
-            this.value.replace(/[^0-9.,]/g, '');
+            this.value = this.value.replace(/[^0-9.,]/g, '');
         });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const clearEntries = document.querySelector('.clear-entries');
+
+    clearEntries.addEventListener('click', () => {
+        const inputFields = document.querySelectorAll('input[type="number"]');
+        inputFields.forEach(input => {
+            input.value = ''; 
+        });
+
+        totalIncome = 0;
+        totalIncomeElement.innerText = totalIncome.toFixed(2);
+        totalIncomeElement.style.color = 'black';
+
+        let totalExpenses = 0;
+        totalExpensesElement.innerText = totalExpenses.toFixed(2);
+        totalExpensesElement.style.color = 'black';
+
+        balance = 0;
+        balanceElement.innerText = balance.toFixed(2) + " " + "€";
+        balanceElement.style.color = 'black';
     });
 });
