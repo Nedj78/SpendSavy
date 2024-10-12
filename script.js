@@ -188,6 +188,7 @@ function generatePDF() {
 
         doc.text(`${entry.label}: € ${entry.value}`, leftColumnX, currentY);
         currentY += 10; 
+        doc.setTextColor(0, 0, 0);
     });
 
     // Section Expenses
@@ -226,6 +227,7 @@ function generatePDF() {
 
         doc.text(`${entry.label}: € ${entry.value}`, rightColumnX, currentY);
         currentY += 10; 
+        doc.setTextColor(0, 0, 0);
     });
 
     currentY = 50;
