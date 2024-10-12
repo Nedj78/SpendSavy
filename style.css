@@ -538,7 +538,7 @@ footer > p {
     .total-column {
         display: block;
         width: 95vw;
-        top: 370px;
+        top: 350px;
         padding: 15px;
         position: fixed;
         right: 0;
@@ -680,6 +680,6 @@ footer > p {
     }
 
     .cta-open {
-        display: block;
+        display: none;
     }
 }
