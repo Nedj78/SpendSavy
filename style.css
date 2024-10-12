@@ -448,9 +448,9 @@ footer > p {
     .total-column {
         display: none;
         width: 90vw;
-        top: 220px;
+        top: 150px;
         height: 40vh;
-        padding: 20px;
+        padding: 25px;
         position: fixed;
         right: 0;
         overflow: hidden;
