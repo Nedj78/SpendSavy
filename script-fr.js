@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
         totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
         balance = totalIncome - totalExpenses;
-        balanceElement.innerText = balance.toFixed(2) + " " + "$";
+        balanceElement.innerText = balance.toFixed(2) + " " + "€";
 
         balanceElement.style.fontWeight = 'bolder';
         balanceElement.style.fontSize = '15pt';
@@ -129,14 +129,14 @@ function generatePDF() {
     let balance = document.getElementById('balance').textContent || 0;
 
     // Column positions
-    const leftColumnX = 20;
-    const rightColumnX = 80; 
-    const secondRightColumnX = 145;
+    const leftColumnX = 15;
+    const rightColumnX = 75; 
+    const secondRightColumnX = 138;
     let currentY = 30; 
 
     // Get current date
     const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString('en-US', {
+    const formattedDate = currentDate.toLocaleDateString('fr-FR', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
@@ -150,32 +150,32 @@ function generatePDF() {
 
     // Top title content
     doc.setFontSize(18);
-    doc.text("Spend$avy - Financial Report", 20, 20);
+    doc.text("Spend$avy - Rapport financier", 15, 20);
 
     // Section Revenus
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
-    doc.text("Incomes", leftColumnX, currentY); 
+    doc.text("Revenus", leftColumnX, currentY); 
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
 
     const incomeEntries = [
-        { label: "Salary", value: salary },
-        { label: "Bonuses", value: bonuses },
+        { label: "Salaire", value: salary },
+        { label: "Primes", value: bonuses },
         { label: "Commissions", value: commissions },
-        { label: "Fees", value: fees },
-        { label: "Tips", value: tips },
-        { label: "Rental Income", value: rentalIncome },
-        { label: "Dividends", value: dividends },
-        { label: "Interest", value: interest },
+        { label: "Honoraires", value: fees },
+        { label: "Pourboires", value: tips },
+        { label: "Revenus immobiliers", value: rentalIncome },
+        { label: "Dividendes", value: dividends },
+        { label: "Intérêts", value: interest },
         { label: "Capital Gains", value: capitalGains },
         { label: "Pensions", value: pensions },
-        { label: "Benefits", value: benefits },
-        { label: "Unemployment", value: unemployment },
-        { label: "Platform Revenue", value: platformRevenue },
-        { label: "Exceptional Income", value: exceptionalIncome },
-        { label: "Royalties", value: royalties }
+        { label: "Prestations sociales", value: benefits },
+        { label: "Allocations chômage", value: unemployment },
+        { label: "Plateformes", value: platformRevenue },
+        { label: "Exceptionnels", value: exceptionalIncome },
+        { label: "Droits d'auteur/royalties", value: royalties }
     ];
 
     incomeEntries.forEach(entry => {
@@ -185,7 +185,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: $ ${entry.value}`, leftColumnX, currentY);
+        doc.text(`${entry.label}: € ${entry.value}`, leftColumnX, currentY);
         currentY += 10; 
         doc.setTextColor(0, 0, 0);
     });
@@ -194,27 +194,27 @@ function generatePDF() {
     currentY = 50;
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
-    doc.text("Expenses", rightColumnX, currentY); 
+    doc.text("Dépenses", rightColumnX, currentY); 
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
 
     const expensesEntries = [
-        { label: "Rent/Mortgage", value: rentMortgage },
-        { label: "Home Insurance", value: homeInsurance },
-        { label: "Electricity", value: electricity },
-        { label: "Gas", value: gas },
-        { label: "Water", value: water },
-        { label: "Local Taxes", value: localTaxes },
-        { label: "Home Maintenance", value: homeMaintenance },
-        { label: "Phone Subscription", value: phoneSubscription },
+        { label: "Loyer/prêt immobilier", value: rentMortgage },
+        { label: "Assurance habitation", value: homeInsurance },
+        { label: "Électricité", value: electricity },
+        { label: "Gaz", value: gas },
+        { label: "Eau", value: water },
+        { label: "Taxes locales", value: localTaxes },
+        { label: "Entretien de la maison", value: homeMaintenance },
+        { label: "Abonn. téléphonique", value: phoneSubscription },
         { label: "Internet/TV", value: internetTv },
-        { label: "Bank Fees", value: bankFees },
-        { label: "Miscellaneous", value: miscellaneous },
-        { label: "Transportation", value: transportation },
-        { label: "Health Expenses", value: health },
-        { label: "Health Insurance", value: healthInsurance },
-        { label: "Grocery", value: grocery },
+        { label: "Frais bancaires", value: bankFees },
+        { label: "Divers", value: miscellaneous },
+        { label: "Transports", value: transportation },
+        { label: "Frais médicaux", value: health },
+        { label: "Assurance santé", value: healthInsurance },
+        { label: "Courses alimentaires", value: grocery },
     ];
 
     expensesEntries.forEach(entry => {
@@ -224,7 +224,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: $ ${entry.value}`, rightColumnX, currentY);
+        doc.text(`${entry.label}: € ${entry.value}`, rightColumnX, currentY);
         currentY += 10; 
         doc.setTextColor(0, 0, 0);
     });
@@ -232,28 +232,28 @@ function generatePDF() {
     currentY = 50;
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
-    doc.text("Expenses", rightColumnX, currentY); 
+    doc.text("Dépenses", rightColumnX, currentY); 
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
 
     const secondExpensesEntries = [
         { label: "Restaurant", value: restaurant },
-        { label: "Education", value: education },
+        { label: "Éducation", value: education },
         { label: "Sport", value: sport },
-        { label: "Vacation", value: vacation },
-        { label: "Clothing/Shoes", value: clothingShoes },
-        { label: "Books", value: books },
-        { label: "Outings", value: outings },
-        { label: "Cosmetic", value: cosmetic },
-        { label: "Hairdresser", value: hairstyle },
-        { label: "Care", value: care },
-        { label: "Loans Repayments", value: loansRepayments },
-        { label: "Savings/Investments", value: savingsInvestments },
-        { label: "Income Taxes", value: incomeTaxes },
-        { label: "Gifts/Donations", value: giftsDonations },
-        { label: "Cleaning Products", value: cleaningProducts },
-        { label: "Car Maintenance/Repairs", value: carMaintenanceRepairs },
+        { label: "Vacances", value: vacation },
+        { label: "Vêtements/chaussures", value: clothingShoes },
+        { label: "Lecture", value: books },
+        { label: "Sorties", value: outings },
+        { label: "Cosmétique", value: cosmetic },
+        { label: "Coiffeur", value: hairstyle },
+        { label: "Soins esthétiques", value: care },
+        { label: "Prêts/remboursements", value: loansRepayments },
+        { label: "Épargne/investissements", value: savingsInvestments },
+        { label: "Impôts sur le revenu", value: incomeTaxes },
+        { label: "Cadeaux/dons", value: giftsDonations },
+        { label: "Prod. nettoyage/fournitures", value: cleaningProducts },
+        { label: "Entretien/réparations auto", value: carMaintenanceRepairs },
     ];
 
     secondExpensesEntries.forEach(entry => {
@@ -263,7 +263,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: $ ${entry.value}`, secondRightColumnX, currentY);
+        doc.text(`${entry.label}: € ${entry.value}`, secondRightColumnX, currentY);
         currentY += 10; 
     });
 
@@ -271,13 +271,13 @@ function generatePDF() {
     currentY = 220; 
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
-    doc.text("Summary", 20, currentY); 
+    doc.text("Summary", 15, currentY); 
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.text(`Total Income: $ ${totalIncome}`, 20, currentY);
+    doc.text(`Revenus totaux: € ${totalIncome}`, 15, currentY);
     currentY += 10;
-    doc.text(`Total Expenses: $ ${totalExpenses}`, 20, currentY);
+    doc.text(`Dépenses totales: € ${totalExpenses}`, 15, currentY);
     currentY += 10;
 
     // Convert results to number
@@ -300,7 +300,7 @@ function generatePDF() {
     }
 
     doc.setFont("helvetica", "bold");
-    doc.text(`Balance: $ ${balance}`, 20, currentY);
+    doc.text(`Équilibre: € ${balance}`, 15, currentY);
 
     const pdfDataUri = doc.output('datauristring');
 
@@ -308,7 +308,7 @@ function generatePDF() {
     newWindow.document.write(`
         <html>
             <head>
-                <title>SpendSavy report</title> 
+                <title>Rapport financier SpendSavy</title> 
             </head>
             <body>
                 <iframe width="100%" height="100%" src="${pdfDataUri}"></iframe>
@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
         totalExpensesElement.style.color = 'black';
 
         balance = 0;
-        balanceElement.innerText = balance.toFixed(2) + " " + "$";
+        balanceElement.innerText = balance.toFixed(2) + " " + "€";
         balanceElement.style.color = 'black';
     });
 });
