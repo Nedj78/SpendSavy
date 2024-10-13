@@ -9,6 +9,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .container {
@@ -110,7 +111,7 @@ legend h2 {
 }
 
 .clear-entries {
-    background-color: #eb6948ec; 
+    background-color: #f15028dc; 
     border: none; 
     color: white; 
     padding: 15px 32px; 
@@ -188,7 +189,7 @@ footer > p {
         display: block;
         width: 40vw;
         top: 152px;
-        right: 0;
+        right: 100px;
     }
 
     .delete-total-group {
@@ -206,7 +207,7 @@ footer > p {
 
 /* Pour les grands écrans (entre 1200px et 1700px) */
 @media (min-width: 1200px) and (max-width: 1699px) {
-    html {
+    html, body {
         zoom: 100%;
         overflow-x: hidden;
     }
@@ -233,7 +234,7 @@ footer > p {
 
 /* Pour les écrans de taille moyenne (entre 992px et 1200px) */
 @media (min-width: 992px) and (max-width: 1199px) {
-    html {
+    html, body {
         zoom: 100%;
         overflow-x: hidden;
     }
@@ -265,6 +266,10 @@ footer > p {
     html {
         zoom: 100%;
         height: 460vh;
+        overflow-x: hidden;
+    }
+
+    body {
         overflow-x: hidden;
     }
 
@@ -345,6 +350,9 @@ footer > p {
         height: 570vh;
         overflow-x: hidden;
     }
+     body {
+        overflow-x: hidden;
+     }
 
     header h1 {
         position: absolute;
@@ -427,13 +435,14 @@ footer > p {
 @media (min-width: 311px) and (max-width: 575px) {
     html {
         zoom: 100%;
-        height: 200vh;
+        height: 330vh;
         padding: 0 0 0 1px;
         overflow-x: hidden;
     }
 
     body {
         margin: -23px 0 0 0;
+        overflow-x: hidden;
     }
 
     header h1 {
@@ -475,9 +484,9 @@ footer > p {
     .cta-open {
         position: fixed;
         right: 0;
-        top: 200px;
+        top: 110px;
         width: 40px;
-        height: 35vh;
+        height: 60vh;
         background-color: #3498db;
         border-radius: 5px 0 0 5px;
         display: flex;
@@ -533,7 +542,7 @@ footer > p {
 
 /* Pour les très petits écrans (moins de 376px) */
 @media (max-width: 310px) {
-    html {
+    html, body {
         zoom: 100%;
         display: none;
         overflow-x: hidden;
@@ -541,16 +550,21 @@ footer > p {
 }
 
 /* iPhone SE (2020) */
-@media (min-height: 400px) and (max-height: 666px) {
+@media (min-height: 400px) and (max-height: 599px) {
     html {
         zoom: 100%;
+        overflow-x: hidden;
+        height: 860vh;
+    }
+
+    body {
         overflow-x: hidden;
     }
     
     .cta-open {
         height: 60vh;
         line-height: 0;
-        pointer-events: auto;
+        pointer-events: none;
     }
     
     .total-column {
@@ -563,7 +577,37 @@ footer > p {
     }
 
     .total-column.hidden {
+        display: hidden;
+    }
+}
+
+/* iPhone SE (2020) */
+@media (min-height: 600) and (max-height: 666px) {
+    html {
+        zoom: 100%;
+        overflow-x: hidden;
+        height: 860vh;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+    
+    .cta-open {
         display: none;
+    }
+    
+    .total-column {
+        display: block;
+        width: 90%;
+        top: 350px;
+        padding: 15px;
+        position: fixed;
+        right: 0;
+    }
+
+    .total-column.hidden {
+        display: block;
     }
 }
 
@@ -571,6 +615,10 @@ footer > p {
 @media (min-height: 667px) and (max-height: 735px) {
     html {
         zoom: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
         overflow-x: hidden;
     }
     
@@ -585,6 +633,10 @@ footer > p {
 @media (min-height: 736px) and (max-height: 779px) {
     html {
         zoom: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
         overflow-x: hidden;
     }
     
@@ -622,6 +674,10 @@ footer > p {
         zoom: 100%;
         overflow-x: hidden;
     }
+
+    body {
+        overflow-x: hidden;
+    }
     
     .cta-open {
         height: 50vh;
@@ -634,6 +690,10 @@ footer > p {
 @media (min-height: 844px) and (max-height: 899px) {
     html {
         zoom: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
         overflow-x: hidden;
     }
     
@@ -659,6 +719,10 @@ footer > p {
         zoom: 100%;
         overflow-x: hidden;
     }
+
+    body {
+        overflow-x: hidden;
+    }
     
     .cta-open {
         height: 50vh;
@@ -670,6 +734,10 @@ footer > p {
 @media (min-height: 914px) and (max-height: 925px) {
     html {
         zoom: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
         overflow-x: hidden;
     }
     
@@ -685,6 +753,10 @@ footer > p {
         zoom: 100%;
         overflow-x: hidden;
     }
+
+    body {
+        overflow-x: hidden;
+    }
     
     .cta-open {
         height: 40vh;
@@ -696,6 +768,10 @@ footer > p {
 @media (min-height: 1024px) {
     html {
         zoom: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
         overflow-x: hidden;
     }
     

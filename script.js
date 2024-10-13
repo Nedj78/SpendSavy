@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
         totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
         balance = totalIncome - totalExpenses;
-        balanceElement.innerText = balance.toFixed(2) + " " + "€";
+        balanceElement.innerText = balance.toFixed(2) + " " + "$";
 
         balanceElement.style.fontWeight = 'bolder';
         balanceElement.style.fontSize = '15pt';
@@ -186,7 +186,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, leftColumnX, currentY);
+        doc.text(`${entry.label}: $ ${entry.value}`, leftColumnX, currentY);
         currentY += 10; 
         doc.setTextColor(0, 0, 0);
     });
@@ -225,7 +225,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, rightColumnX, currentY);
+        doc.text(`${entry.label}: $ ${entry.value}`, rightColumnX, currentY);
         currentY += 10; 
         doc.setTextColor(0, 0, 0);
     });
@@ -264,7 +264,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, secondRightColumnX, currentY);
+        doc.text(`${entry.label}: $ ${entry.value}`, secondRightColumnX, currentY);
         currentY += 10; 
     });
 
@@ -276,9 +276,9 @@ function generatePDF() {
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.text(`Total Income: € ${totalIncome}`, 20, currentY);
+    doc.text(`Total Income: $ ${totalIncome}`, 20, currentY);
     currentY += 10;
-    doc.text(`Total Expenses: € ${totalExpenses}`, 20, currentY);
+    doc.text(`Total Expenses: $ ${totalExpenses}`, 20, currentY);
     currentY += 10;
 
     // Convert results to number
@@ -301,7 +301,7 @@ function generatePDF() {
     }
 
     doc.setFont("helvetica", "bold");
-    doc.text(`Balance: € ${balance}`, 20, currentY);
+    doc.text(`Balance: $ ${balance}`, 20, currentY);
 
     const pdfDataUri = doc.output('datauristring');
 
@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
         totalExpensesElement.style.color = 'black';
 
         balance = 0;
-        balanceElement.innerText = balance.toFixed(2) + " " + "€";
+        balanceElement.innerText = balance.toFixed(2) + " " + "$";
         balanceElement.style.color = 'black';
     });
 });
