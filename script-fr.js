@@ -185,7 +185,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, leftColumnX, currentY);
+        doc.text(`${entry.label}: ${entry.value} €`, leftColumnX, currentY);
         currentY += 10; 
         doc.setTextColor(0, 0, 0);
     });
@@ -224,7 +224,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, rightColumnX, currentY);
+        doc.text(`${entry.label}: ${entry.value} €`, rightColumnX, currentY);
         currentY += 10; 
         doc.setTextColor(0, 0, 0);
     });
@@ -263,7 +263,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, secondRightColumnX, currentY);
+        doc.text(`${entry.label}: ${entry.value} €`, secondRightColumnX, currentY);
         currentY += 10; 
     });
 
@@ -271,13 +271,13 @@ function generatePDF() {
     currentY = 220; 
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
-    doc.text("Summary", 15, currentY); 
+    doc.text("Récapitulatif", 15, currentY); 
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.text(`Revenus totaux: € ${totalIncome}`, 15, currentY);
+    doc.text(`Revenus totaux: ${totalIncome}`, 15, currentY);
     currentY += 10;
-    doc.text(`Dépenses totales: € ${totalExpenses}`, 15, currentY);
+    doc.text(`Dépenses totales: ${totalExpenses}`, 15, currentY);
     currentY += 10;
 
     // Convert results to number
