@@ -393,7 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
         totalIncomeElement.innerText = totalIncome.toFixed(2) + " " + "€";
         totalIncomeElement.style.color = 'black';
 
-        let totalExpenses = 0;
+        totalExpenses = 0;
         totalExpensesElement.innerText = totalExpenses.toFixed(2) + " " + "€";
         totalExpensesElement.style.color = 'black';
 
