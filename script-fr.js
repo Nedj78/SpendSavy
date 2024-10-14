@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const value = parseFloat(input.value) || 0;
             totalIncome += value;
         });
-        totalIncomeElement.innerText = totalIncome.toFixed(2);
+        totalIncomeElement.innerText = totalIncome.toFixed(2) + " " + "€";
         updateBalance();
     }
 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const value = parseFloat(input.value) || 0;
             totalExpenses += value;
         });
-        totalExpensesElement.innerText = totalExpenses.toFixed(2);
+        totalExpensesElement.innerText = totalExpenses.toFixed(2) + " " + "€";
         updateBalance();
     }
 
