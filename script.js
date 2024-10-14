@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
         totalExpensesElement.style.color = 'black';
 
         balance = 0;
-        balanceElement.innerText = balance.toFixed(2) + " " + "$";
+        balanceElement.innerText = balance.toFixed(2) + " " + "$;
         balanceElement.style.color = 'black';
     });
 });
