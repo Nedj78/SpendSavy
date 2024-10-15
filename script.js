@@ -278,9 +278,9 @@ function generatePDF() {
     // Convert results to number
     totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
     totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
-    doc.text(`Total Income: ${totalIncome}`, 20, currentY);
+    doc.text(`Total Income: ${totalIncome} $`, 20, currentY);
     currentY += 10;
-    doc.text(`Total Expenses: ${totalExpenses}`, 20, currentY);
+    doc.text(`Total Expenses: ${totalExpenses} $`, 20, currentY);
     currentY += 10;
 
     balance = totalIncome - totalExpenses;
