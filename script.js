@@ -275,14 +275,13 @@ function generatePDF() {
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
+    // Convert results to number
+    totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
+    totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
     doc.text(`Total Income: ${totalIncome}`, 20, currentY);
     currentY += 10;
     doc.text(`Total Expenses: ${totalExpenses}`, 20, currentY);
     currentY += 10;
-
-    // Convert results to number
-    totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
-    totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
 
     balance = totalIncome - totalExpenses;
  
