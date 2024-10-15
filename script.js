@@ -275,9 +275,9 @@ function generatePDF() {
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.text(`Total Income: $ ${totalIncome}`, 20, currentY);
+    doc.text(`Total Income: ${totalIncome}`, 20, currentY);
     currentY += 10;
-    doc.text(`Total Expenses: $ ${totalExpenses}`, 20, currentY);
+    doc.text(`Total Expenses: ${totalExpenses}`, 20, currentY);
     currentY += 10;
 
     // Convert results to number
