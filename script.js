@@ -389,15 +389,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         totalIncome = 0;
-        totalIncomeElement.innerText = totalIncome.toFixed(2) + " " + "$";
+        totalIncomeElement.innerText =  "$" + " " + totalIncome.toFixed(2);
         totalIncomeElement.style.color = 'black';
 
         let totalExpenses = 0;
-        totalExpensesElement.innerText = totalExpenses.toFixed(2) + " " + "$";
+        totalExpensesElement.innerText =  "$" + " " + totalExpenses.toFixed(2);
         totalExpensesElement.style.color = 'black';
 
         balance = 0;
-        balanceElement.innerText = balance.toFixed(2) + " " + "$";
+        balanceElement.innerText = "$" + " " + balance.toFixed(2);
         balanceElement.style.color = 'black';
     });
 });
