@@ -11,6 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const incomeInputs = document.querySelectorAll('.income-section input[type="number"]');
     const expenseInputs = document.querySelectorAll('.expenses-section input[type="number"]');
 
+    incomeInputs.forEach(input => {
+        input.addEventListener('input', calculateTotalIncome);
+    });
+
+    expenseInputs.forEach(input => {
+        input.addEventListener('input', calculateTotalExpenses);
+    });
+    
     const calculateTotalIncome = () => {
         let totalIncome = 0;
         incomeInputs.forEach(input => {
@@ -49,14 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
             balanceElement.style.color = 'red';
         }
     }
-
-    incomeInputs.forEach(input => {
-        input.addEventListener('input', calculateTotalIncome);
-    });
-
-    expenseInputs.forEach(input => {
-        input.addEventListener('input', calculateTotalExpenses);
-    });
 
     calculateTotalIncome();
     calculateTotalExpenses();
