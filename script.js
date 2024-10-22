@@ -1,10 +1,9 @@
 const totalIncomeElement = document.getElementById("total-income");
 const totalExpensesElement = document.getElementById("total-expenses");
-
 const balanceElement = document.getElementById("balance");
 
-let totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
-let totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
+let totalIncome = parseFloat(totalIncomeElement.innerText.replace('$', '').trim()) || 0;
+let totalExpenses = parseFloat(totalExpensesElement.innerText.replace('$', '').trim()) || 0;
 let balance = totalIncome - totalExpenses;
 
 document.addEventListener("DOMContentLoaded", function () {      
@@ -40,14 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const updateBalance = () => {
-        totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
-        totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
+        // Remove the $ symbol and convert to number
+        totalIncome = parseFloat(totalIncomeElement.innerText.replace('$', '').trim()) || 0;
+        totalExpenses = parseFloat(totalExpensesElement.innerText.replace('$', '').trim()) || 0;
         balance = totalIncome - totalExpenses;
+        
         balanceElement.innerText = "$ " + balance.toFixed(2);
 
         balanceElement.style.fontWeight = 'bolder';
         balanceElement.style.fontSize = '15pt';
-
 
         if (balance > 0) {
             balanceElement.style.color = 'green';
