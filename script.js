@@ -6,20 +6,17 @@ let totalIncome = parseFloat(totalIncomeElement.innerText.replace('$', '').trim(
 let totalExpenses = parseFloat(totalExpensesElement.innerText.replace('$', '').trim()) || 0;
 let balance = totalIncome - totalExpenses;
 
-document.addEventListener("DOMContentLoaded", function () {      
+document.addEventListener("DOMContentLoaded", function () {
     const incomeInputs = document.querySelectorAll('.income-section input[type="number"]');
     const expenseInputs = document.querySelectorAll('.expenses-section input[type="number"]');
 
-    incomeInputs.forEach(input => {
-        input.addEventListener('input', calculateTotalIncome);
-    });
+    // Initial values
+    let totalIncome = 0;
+    let totalExpenses = 0;
+    let balance = 0;
 
-    expenseInputs.forEach(input => {
-        input.addEventListener('input', calculateTotalExpenses);
-    });
-    
     const calculateTotalIncome = () => {
-        let totalIncome = 0;
+        totalIncome = 0;
         incomeInputs.forEach(input => {
             const value = parseFloat(input.value) || 0;
             totalIncome += value;
@@ -29,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const calculateTotalExpenses = () => {
-        let totalExpenses = 0;
+        totalExpenses = 0;
         expenseInputs.forEach(input => {
             const value = parseFloat(input.value) || 0;
             totalExpenses += value;
@@ -39,11 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const updateBalance = () => {
-        // Remove the $ symbol and convert to number
-        totalIncome = parseFloat(totalIncomeElement.innerText.replace('$', '').trim()) || 0;
-        totalExpenses = parseFloat(totalExpensesElement.innerText.replace('$', '').trim()) || 0;
         balance = totalIncome - totalExpenses;
-        
         balanceElement.innerText = "$ " + balance.toFixed(2);
 
         balanceElement.style.fontWeight = 'bolder';
@@ -58,6 +51,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Event listeners for dynamic updates
+    incomeInputs.forEach(input => {
+        input.addEventListener('input', calculateTotalIncome);
+    });
+
+    expenseInputs.forEach(input => {
+        input.addEventListener('input', calculateTotalExpenses);
+    });
+
+    // Initial calculation when the page loads
     calculateTotalIncome();
     calculateTotalExpenses();
 
