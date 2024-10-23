@@ -6,6 +6,7 @@ const balanceElement = document.getElementById("balance");
 let totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
 let totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
 let balance = totalIncome - totalExpenses;
+balance = parseFloat(balance);
 
 document.addEventListener("DOMContentLoaded", function () {
     const incomeInputs = document.querySelectorAll('.income-section input[type="number"]');
