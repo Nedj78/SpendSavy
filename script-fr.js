@@ -304,7 +304,7 @@ function generatePDF() {
     }
 
     doc.setFont("helvetica", "bold");
-    doc.text(`Équilibre: € ${balance}`, 15, currentY);
+    doc.text(`Équilibre: ${balance} €`, 15, currentY);
 
     const pdfDataUri = doc.output('datauristring');
 
