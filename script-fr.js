@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const value = parseFloat(input.value) || 0;
             totalIncome += value;
         });
-        totalIncomeElement.innerText = "$ " + totalIncome.toFixed(2);
+        totalIncomeElement.innerText = totalIncome.toFixed(2) + " €";
         updateBalance();
     }
 
@@ -32,13 +32,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const value = parseFloat(input.value) || 0;
             totalExpenses += value;
         });
-        totalExpensesElement.innerText = "$ " + totalExpenses.toFixed(2);
+        totalExpensesElement.innerText = totalExpenses.toFixed(2) + " €";
         updateBalance();
     }
 
     const updateBalance = () => {
         balance = totalIncome - totalExpenses;
-        balanceElement.innerText = "$ " + balance.toFixed(2);
+        balanceElement.innerText = balance.toFixed(2) + " €";
 
         balanceElement.style.fontWeight = 'bolder';
         balanceElement.style.fontSize = '15pt';
