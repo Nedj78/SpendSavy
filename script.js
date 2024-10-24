@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial calculation when the page loads
     calculateTotalIncome();
     calculateTotalExpenses();
-    updateBalance();
 
     document.getElementById('download-pdf').addEventListener('click', generatePDF);
 });
