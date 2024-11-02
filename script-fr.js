@@ -292,10 +292,6 @@ function generatePDF() {
     totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
     totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
 
-    balance = totalIncome - totalExpenses;
- 
-    balance = parseFloat(balance); 
-
     if (balance > 0) {
         console.log("Le solde est positif.");
         doc.setTextColor(0, 128, 0); // Green
@@ -309,6 +305,8 @@ function generatePDF() {
 
     doc.setFont("helvetica", "bold");
     doc.text(`Équilibre: ${balance} €`, 15, currentY);
+
+    balance = parseFloat(totalIncome - totalExpenses);
 
     const pdfDataUri = doc.output('datauristring');
 
