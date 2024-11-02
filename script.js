@@ -1,45 +1,47 @@
 const totalIncomeElement = document.getElementById("total-income");
 const totalExpensesElement = document.getElementById("total-expenses");
-
 const balanceElement = document.getElementById("balance");
 
-let totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
-let totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
+let totalIncome = parseFloat(totalIncomeElement.innerText.replace('$', '').trim()) || 0;
+console.log('income:', totalIncome);
+let totalExpenses = parseFloat(totalExpensesElement.innerText.replace('$', '').trim()) || 0;
 let balance = totalIncome - totalExpenses;
 
-document.addEventListener("DOMContentLoaded", function () {      
+document.addEventListener("DOMContentLoaded", function () {
     const incomeInputs = document.querySelectorAll('.income-section input[type="number"]');
     const expenseInputs = document.querySelectorAll('.expenses-section input[type="number"]');
+    
+    // Global variable declarations
+    let totalIncome = 0;
+    let totalExpenses = 0;
+    let balance = 0;
 
     const calculateTotalIncome = () => {
-        let totalIncome = 0;
+        totalIncome = 0;
         incomeInputs.forEach(input => {
-            const value = parseFloat(input.value) || 0;
+            const value = parseFloat(input.value.replace(",", ".")) || 0;
             totalIncome += value;
         });
         totalIncomeElement.innerText = totalIncome.toFixed(2);
         updateBalance();
-    }
-
+    };
+    
     const calculateTotalExpenses = () => {
-        let totalExpenses = 0;
+        totalExpenses = 0;
         expenseInputs.forEach(input => {
-            const value = parseFloat(input.value) || 0;
+            const value = parseFloat(input.value.replace(",", ".")) || 0;
             totalExpenses += value;
         });
         totalExpensesElement.innerText = totalExpenses.toFixed(2);
         updateBalance();
-    }
+    };
+    
 
     const updateBalance = () => {
-        totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
-        totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
         balance = totalIncome - totalExpenses;
-        balanceElement.innerText = balance.toFixed(2) + " " + "$";
-
+        balanceElement.innerText = "$ " + balance.toFixed(2);
         balanceElement.style.fontWeight = 'bolder';
         balanceElement.style.fontSize = '15pt';
-
 
         if (balance > 0) {
             balanceElement.style.color = 'green';
@@ -65,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function generatePDF() {
+    
     const { jsPDF } = window.jspdf;
 
     const doc = new jsPDF({
@@ -275,14 +278,15 @@ function generatePDF() {
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
+    // Convert results to number
+    console.log('revenu: ' + parseFloat(document.getElementById('total-income').textContent))
+
+    totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
+    totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
     doc.text(`Total Income: $ ${totalIncome}`, 20, currentY);
     currentY += 10;
     doc.text(`Total Expenses: $ ${totalExpenses}`, 20, currentY);
     currentY += 10;
-
-    // Convert results to number
-    totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
-    totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
 
     balance = totalIncome - totalExpenses;
  
@@ -390,15 +394,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         totalIncome = 0;
-        totalIncomeElement.innerText = totalIncome.toFixed(2);
+        totalIncomeElement.innerText =  "$ " + totalIncome.toFixed(2);
         totalIncomeElement.style.color = 'black';
 
         let totalExpenses = 0;
-        totalExpensesElement.innerText = totalExpenses.toFixed(2);
+        totalExpensesElement.innerText =  "$ " + totalExpenses.toFixed(2);
         totalExpensesElement.style.color = 'black';
 
         balance = 0;
-        balanceElement.innerText = balance.toFixed(2) + " " + "$";
+        balanceElement.innerText = "$ " + balance.toFixed(2);
         balanceElement.style.color = 'black';
     });
 });

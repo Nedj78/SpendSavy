@@ -7,39 +7,45 @@ let totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
 let totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
 let balance = totalIncome - totalExpenses;
 
-document.addEventListener("DOMContentLoaded", function () {      
+console.log('Initial total income:', totalIncome); 
+console.log('Initial total expenses:', totalExpenses); 
+console.log('Initial balance:', balance); 
+
+document.addEventListener("DOMContentLoaded", function () {
     const incomeInputs = document.querySelectorAll('.income-section input[type="number"]');
     const expenseInputs = document.querySelectorAll('.expenses-section input[type="number"]');
 
+    // Initial values
+    let totalIncome = 0;
+    let totalExpenses = 0;
+    let balance = 0;
+
     const calculateTotalIncome = () => {
-        let totalIncome = 0;
+        totalIncome = 0;
         incomeInputs.forEach(input => {
             const value = parseFloat(input.value) || 0;
             totalIncome += value;
         });
-        totalIncomeElement.innerText = totalIncome.toFixed(2);
+        totalIncomeElement.innerText = totalIncome.toFixed(2) + " €";
         updateBalance();
     }
 
     const calculateTotalExpenses = () => {
-        let totalExpenses = 0;
+        totalExpenses = 0;
         expenseInputs.forEach(input => {
             const value = parseFloat(input.value) || 0;
             totalExpenses += value;
         });
-        totalExpensesElement.innerText = totalExpenses.toFixed(2);
+        totalExpensesElement.innerText = totalExpenses.toFixed(2) + " €";
         updateBalance();
     }
 
     const updateBalance = () => {
-        totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
-        totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
         balance = totalIncome - totalExpenses;
-        balanceElement.innerText = balance.toFixed(2) + " " + "€";
+        balanceElement.innerText = balance.toFixed(2) + " €";
 
         balanceElement.style.fontWeight = 'bolder';
         balanceElement.style.fontSize = '15pt';
-
 
         if (balance > 0) {
             balanceElement.style.color = 'green';
@@ -50,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Event listeners for dynamic updates
     incomeInputs.forEach(input => {
         input.addEventListener('input', calculateTotalIncome);
     });
@@ -58,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         input.addEventListener('input', calculateTotalExpenses);
     });
 
+    // Initial calculation when the page loads
     calculateTotalIncome();
     calculateTotalExpenses();
 
@@ -185,7 +193,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, leftColumnX, currentY);
+        doc.text(`${entry.label}: ${entry.value} €`, leftColumnX, currentY);
         currentY += 10; 
         doc.setTextColor(0, 0, 0);
     });
@@ -224,7 +232,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, rightColumnX, currentY);
+        doc.text(`${entry.label}: ${entry.value} €`, rightColumnX, currentY);
         currentY += 10; 
         doc.setTextColor(0, 0, 0);
     });
@@ -263,7 +271,7 @@ function generatePDF() {
             doc.setTextColor(0, 0, 0); // Black
         }
 
-        doc.text(`${entry.label}: € ${entry.value}`, secondRightColumnX, currentY);
+        doc.text(`${entry.label}: ${entry.value} €`, secondRightColumnX, currentY);
         currentY += 10; 
     });
 
@@ -271,13 +279,13 @@ function generatePDF() {
     currentY = 220; 
     doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
-    doc.text("Summary", 15, currentY); 
+    doc.text("Récapitulatif", 15, currentY); 
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.text(`Revenus totaux: € ${totalIncome}`, 15, currentY);
+    doc.text(`Revenus totaux: ${totalIncome}`, 15, currentY);
     currentY += 10;
-    doc.text(`Dépenses totales: € ${totalExpenses}`, 15, currentY);
+    doc.text(`Dépenses totales: ${totalExpenses}`, 15, currentY);
     currentY += 10;
 
     // Convert results to number
@@ -300,7 +308,7 @@ function generatePDF() {
     }
 
     doc.setFont("helvetica", "bold");
-    doc.text(`Équilibre: € ${balance}`, 15, currentY);
+    doc.text(`Équilibre: ${balance} €`, 15, currentY);
 
     const pdfDataUri = doc.output('datauristring');
 
@@ -390,11 +398,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         totalIncome = 0;
-        totalIncomeElement.innerText = totalIncome.toFixed(2);
+        totalIncomeElement.innerText = totalIncome.toFixed(2) + " " + "€";
         totalIncomeElement.style.color = 'black';
 
-        let totalExpenses = 0;
-        totalExpensesElement.innerText = totalExpenses.toFixed(2);
+        totalExpenses = 0;
+        totalExpensesElement.innerText = totalExpenses.toFixed(2) + " " + "€";
         totalExpensesElement.style.color = 'black';
 
         balance = 0;
