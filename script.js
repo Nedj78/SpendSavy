@@ -2,13 +2,18 @@ const totalIncomeElement = document.getElementById("total-income");
 const totalExpensesElement = document.getElementById("total-expenses");
 const balanceElement = document.getElementById("balance");
 
-let totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
-let totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
+let totalIncome = parseFloat(totalIncomeElement.innerText.replace('$', '').trim()) || 0;
+let totalExpenses = parseFloat(totalExpensesElement.innerText.replace('$', '').trim()) || 0;
 let balance = totalIncome - totalExpenses;
 
 document.addEventListener("DOMContentLoaded", function () {
     const incomeInputs = document.querySelectorAll('.income-section input[type="number"]');
     const expenseInputs = document.querySelectorAll('.expenses-section input[type="number"]');
+
+    // Initial values
+    let totalIncome = 0;
+    let totalExpenses = 0;
+    let balance = 0;
 
     const calculateTotalIncome = () => {
         totalIncome = 0;
@@ -29,11 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
         totalExpensesElement.innerText = "$ " + totalExpenses.toFixed(2);
         updateBalance();
     };
-    
 
     const updateBalance = () => {
         balance = totalIncome - totalExpenses;
-        balanceElement.innerText = balance.toFixed(2) + " " + "$";
+        balanceElement.innerText = "$ " + balance.toFixed(2);
 
         balanceElement.style.fontWeight = 'bolder';
         balanceElement.style.fontSize = '15pt';
@@ -64,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function generatePDF() {
-    
     const { jsPDF } = window.jspdf;
 
     const doc = new jsPDF({
@@ -74,59 +77,59 @@ function generatePDF() {
     });
     
     // Incomes
-    const salary = document.getElementById('salary').value || "0.00";
-    const bonuses = document.getElementById('bonuses').value || "0.00";
-    const commissions = document.getElementById('commissions').value || "0.00";
-    const fees = document.getElementById('fees').value || "0.00";
-    const tips = document.getElementById('tips').value || "0.00";
-    const rentalIncome = document.getElementById('rental_income').value || "0.00";
-    const dividends = document.getElementById('dividends').value || "0.00";
-    const interest = document.getElementById('interest').value || "0.00";
-    const capitalGains = document.getElementById('capital_gains').value || "0.00";
-    const pensions = document.getElementById('pensions').value || "0.00";
-    const benefits = document.getElementById('benefits').value || "0.00";
-    const unemployment = document.getElementById('unemployment').value || "0.00";
-    const platformRevenue = document.getElementById('platform_revenue').value || "0.00";
-    const exceptionalIncome = document.getElementById('exceptional_income').value || "0.00";
-    const royalties = document.getElementById('royalties').value || "0.00";
+    const salary = document.getElementById('salary').value || 0;
+    const bonuses = document.getElementById('bonuses').value || 0;
+    const commissions = document.getElementById('commissions').value || 0;
+    const fees = document.getElementById('fees').value || 0;
+    const tips = document.getElementById('tips').value || 0;
+    const rentalIncome = document.getElementById('rental_income').value || 0;
+    const dividends = document.getElementById('dividends').value || 0;
+    const interest = document.getElementById('interest').value || 0;
+    const capitalGains = document.getElementById('capital_gains').value || 0;
+    const pensions = document.getElementById('pensions').value || 0;
+    const benefits = document.getElementById('benefits').value || 0;
+    const unemployment = document.getElementById('unemployment').value || 0;
+    const platformRevenue = document.getElementById('platform_revenue').value || 0;
+    const exceptionalIncome = document.getElementById('exceptional_income').value || 0;
+    const royalties = document.getElementById('royalties').value || 0;
 
     // Expenses
-    const rentMortgage = document.getElementById('rent_mortgage').value || "0.00";
-    const homeInsurance = document.getElementById('home_insurance').value || "0.00";
-    const electricity = document.getElementById('electricity').value || "0.00";
-    const gas = document.getElementById('gas').value || "0.00";
-    const water = document.getElementById('water').value || "0.00";
-    const localTaxes = document.getElementById('local_taxes').value || "0.00";
-    const homeMaintenance = document.getElementById('home_maintenance').value || "0.00";
-    const phoneSubscription = document.getElementById('phone_subscription').value || "0.00";
-    const internetTv = document.getElementById('internet_tv').value || "0.00";
-    const bankFees = document.getElementById('bank_fees').value || "0.00";
-    const miscellaneous = document.getElementById('miscellaneous').value || "0.00";
-    const transportation = document.getElementById('transportation').value || "0.00";
-    const health = document.getElementById('health_expenses').value || "0.00";
-    const healthInsurance = document.getElementById('health_insurance').value || "0.00";
-    const grocery = document.getElementById('grocery').value || "0.00";
-    const restaurant = document.getElementById('restaurant').value || "0.00";
-    const education = document.getElementById('education').value || "0.00";
-    const sport = document.getElementById('sport').value || "0.00";
-    const vacation = document.getElementById('vacation').value || "0.00";
-    const clothingShoes = document.getElementById('clothing_shoes').value || "0.00";
-    const books = document.getElementById('books').value || "0.00";
-    const outings = document.getElementById('outings').value || "0.00";
-    const cosmetic = document.getElementById('cosmetic').value || "0.00";
-    const hairstyle = document.getElementById('hairdresser').value || "0.00";
-    const care = document.getElementById('care').value || "0.00";
-    const loansRepayments = document.getElementById('loans_repayments').value || "0.00";
-    const savingsInvestments = document.getElementById('savings_investments').value || "0.00";
-    const incomeTaxes = document.getElementById('income_taxes').value || "0.00";
-    const giftsDonations = document.getElementById('gifts_donations').value || "0.00";
-    const cleaningProducts = document.getElementById('cleaning_products').value || "0.00";
-    const carMaintenanceRepairs = document.getElementById('car_maintenance_repairs').value || "0.00";
+    const rentMortgage = document.getElementById('rent_mortgage').value || 0;
+    const homeInsurance = document.getElementById('home_insurance').value || 0;
+    const electricity = document.getElementById('electricity').value || 0;
+    const gas = document.getElementById('gas').value || 0;
+    const water = document.getElementById('water').value || 0;
+    const localTaxes = document.getElementById('local_taxes').value || 0;
+    const homeMaintenance = document.getElementById('home_maintenance').value || 0;
+    const phoneSubscription = document.getElementById('phone_subscription').value || 0;
+    const internetTv = document.getElementById('internet_tv').value || 0;
+    const bankFees = document.getElementById('bank_fees').value || 0;
+    const miscellaneous = document.getElementById('miscellaneous').value || 0;
+    const transportation = document.getElementById('transportation').value || 0;
+    const health = document.getElementById('health_expenses').value || 0;
+    const healthInsurance = document.getElementById('health_insurance').value || 0;
+    const grocery = document.getElementById('grocery').value || 0;
+    const restaurant = document.getElementById('restaurant').value || 0;
+    const education = document.getElementById('education').value || 0;
+    const sport = document.getElementById('sport').value || 0;
+    const vacation = document.getElementById('vacation').value || 0;
+    const clothingShoes = document.getElementById('clothing_shoes').value || 0;
+    const books = document.getElementById('books').value || 0;
+    const outings = document.getElementById('outings').value || 0;
+    const cosmetic = document.getElementById('cosmetic').value || 0;
+    const hairstyle = document.getElementById('hairdresser').value || 0;
+    const care = document.getElementById('care').value || 0;
+    const loansRepayments = document.getElementById('loans_repayments').value || 0;
+    const savingsInvestments = document.getElementById('savings_investments').value || 0;
+    const incomeTaxes = document.getElementById('income_taxes').value || 0;
+    const giftsDonations = document.getElementById('gifts_donations').value || 0;
+    const cleaningProducts = document.getElementById('cleaning_products').value || 0;
+    const carMaintenanceRepairs = document.getElementById('car_maintenance_repairs').value || 0;
 
     // Calculated totals
-    let totalIncome = document.getElementById('total-income').textContent || "0.00";
-    let totalExpenses = document.getElementById('total-expenses').textContent || "0.00";
-    let balance = document.getElementById('balance').textContent || "0.00";
+    let totalIncome = document.getElementById('total-income').textContent || 0;
+    let totalExpenses = document.getElementById('total-expenses').textContent || 0;
+    let balance = document.getElementById('balance').textContent || 0;
 
     // Column positions
     const leftColumnX = 20;
@@ -275,15 +278,16 @@ function generatePDF() {
     currentY += 10; 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.text(`Total Income: $ ${totalIncome}`, 20, currentY);
+    
+    doc.text(`Total Income: ${totalIncome}`, 20, currentY);
     currentY += 10;
-    doc.text(`Total Expenses: $ ${totalExpenses}`, 20, currentY);
+    doc.text(`Total Expenses: ${totalExpenses}`, 20, currentY);
     currentY += 10;
 
-    balance = totalIncome - totalExpenses;
+    // Convert results to number
+    totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
+    totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
  
-    balance = parseFloat(balance); 
-
     if (balance > 0) {
         console.log("Le solde est positif.");
         doc.setTextColor(0, 128, 0); // Green
@@ -296,7 +300,9 @@ function generatePDF() {
     }
 
     doc.setFont("helvetica", "bold");
-    doc.text(`Balance: $ ${balance}`, 20, currentY);
+    doc.text(`Balance: ${balance}`, 20, currentY);
+
+    balance = parseFloat(totalIncome - totalExpenses);
 
     const pdfDataUri = doc.output('datauristring');
 
@@ -386,15 +392,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         totalIncome = 0;
-        totalIncomeElement.innerText = totalIncome.toFixed(2);
+        totalIncomeElement.innerText = "$ " + totalIncome.toFixed(2);
         totalIncomeElement.style.color = 'black';
 
         let totalExpenses = 0;
-        totalExpensesElement.innerText = totalExpenses.toFixed(2);
+        totalExpensesElement.innerText =  "$ " + totalExpenses.toFixed(2);
         totalExpensesElement.style.color = 'black';
 
         balance = 0;
-        balanceElement.innerText = balance.toFixed(2) + " " + "$";
+        balanceElement.innerText = "$ " + balance.toFixed(2);
         balanceElement.style.color = 'black';
     });
 });
