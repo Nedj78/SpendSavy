@@ -705,7 +705,7 @@ footer > p {
         height: 50vh;
         line-height: 0.1;
         pointer-events: auto;
-        z-index: 1000;
+        z-index: 999;
     }
     
     .total-column.hidden {
