@@ -68,6 +68,25 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial calculation when the page loads
     calculateTotalIncome();
     calculateTotalExpenses();
+    
+    const clearEntries = document.querySelector('.clear-entries');
+    clearEntries.addEventListener('click', () => {
+        const inputFields = document.querySelectorAll('input[type="number"]');
+        inputFields.forEach(input => input.value = '');
+
+        totalIncome = 0;
+        totalExpenses = 0;
+        balance = 0;
+
+        totalIncomeElement.innerText = "$ " + totalIncome.toFixed(2);
+        totalIncomeElement.style.color = 'black';
+
+        totalExpensesElement.innerText = "$ " + totalExpenses.toFixed(2);
+        totalExpensesElement.style.color = 'black';
+
+        balanceElement.innerText = "$ " + balance.toFixed(2);
+        balanceElement.style.color = 'black';
+    });
 
     document.getElementById('download-pdf').addEventListener('click', generatePDF);
 });
@@ -292,21 +311,10 @@ function generatePDF() {
     totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
     totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
 
-    if (balance > 0) {
-        console.log("Le solde est positif.");
-        doc.setTextColor(0, 128, 0); // Green
-    } else if (balance === 0) {
-        console.log("Le solde est zéro.");
-        doc.setTextColor(0, 0, 0); // Black
-    } else {
-        console.log("Le solde est négatif.");
-        doc.setTextColor(255, 0, 0); // Red
-    }
-
     doc.setFont("helvetica", "bold");
-    doc.text(`Équilibre: ${balance} €`, 15, currentY);
+    doc.text(`Équilibre: ${balance}`, 15, currentY);
 
-    balance = parseFloat(totalIncome - totalExpenses);
+    balance = parseFloat((totalIncome - totalExpenses).toFixed(2));
 
     const pdfDataUri = doc.output('datauristring');
 
@@ -386,25 +394,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const clearEntries = document.querySelector('.clear-entries');
-
-    clearEntries.addEventListener('click', () => {
-        const inputFields = document.querySelectorAll('input[type="number"]');
-        inputFields.forEach(input => {
-            input.value = ''; 
-        });
-
-        totalIncome = 0;
-        totalIncomeElement.innerText = totalIncome.toFixed(2) + " " + "€";
-        totalIncomeElement.style.color = 'black';
-
-        totalExpenses = 0;
-        totalExpensesElement.innerText = totalExpenses.toFixed(2) + " " + "€";
-        totalExpensesElement.style.color = 'black';
-
-        balance = 0;
-        balanceElement.innerText = balance.toFixed(2) + " " + "€";
-        balanceElement.style.color = 'black';
-    });
-});

@@ -2,8 +2,8 @@ const totalIncomeElement = document.getElementById("total-income");
 const totalExpensesElement = document.getElementById("total-expenses");
 const balanceElement = document.getElementById("balance");
 
-let totalIncome = parseFloat(totalIncomeElement.innerText.replace('$', '').trim()) || 0;
-let totalExpenses = parseFloat(totalExpensesElement.innerText.replace('$', '').trim()) || 0;
+let totalIncome = parseFloat(totalIncomeElement.innerText) || 0;
+let totalExpenses = parseFloat(totalExpensesElement.innerText) || 0;
 let balance = totalIncome - totalExpenses;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -63,6 +63,25 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial calculation when the page loads
     calculateTotalIncome();
     calculateTotalExpenses();
+
+    const clearEntries = document.querySelector('.clear-entries');
+    clearEntries.addEventListener('click', () => {
+        const inputFields = document.querySelectorAll('input[type="number"]');
+        inputFields.forEach(input => input.value = '');
+
+        totalIncome = 0;
+        totalExpenses = 0;
+        balance = 0;
+
+        totalIncomeElement.innerText = "$ " + totalIncome.toFixed(2);
+        totalIncomeElement.style.color = 'black';
+
+        totalExpensesElement.innerText = "$ " + totalExpenses.toFixed(2);
+        totalExpensesElement.style.color = 'black';
+
+        balanceElement.innerText = "$ " + balance.toFixed(2);
+        balanceElement.style.color = 'black';
+    });
 
     document.getElementById('download-pdf').addEventListener('click', generatePDF);
 });
@@ -137,15 +156,30 @@ function generatePDF() {
     const secondRightColumnX = 145;
     let currentY = 30; 
 
+
     // Get current date
     const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
+    const monthNames = ["January", "February", "March", "April", "May", "June", 
+                        "July", "August", "September", "October", "November", "December"];
+    const month = monthNames[currentDate.getMonth()]; 
+    const dayNumber = currentDate.getDate(); 
+    const year = currentDate.getFullYear(); 
 
-    // Display current date
+    function getOrdinalSuffix(dayNumber) {
+        if (dayNumber === 31 || (dayNumber % 10 === 1 && dayNumber !== 11)) {
+            return dayNumber + 'st';
+        } else if (dayNumber === 2 || (dayNumber % 10 === 2 && dayNumber !== 12)) {
+            return dayNumber + 'nd';
+        } else if (dayNumber === 3 || (dayNumber % 10 === 3 && dayNumber !== 13)) {
+            return dayNumber + 'rd';
+        } else {
+            return dayNumber + 'th';
+        }
+    }
+
+    const formattedDayNumber = getOrdinalSuffix(dayNumber);
+    const formattedDate = `${month} ${formattedDayNumber}, ${year}`;
+
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
     doc.text(`${formattedDate}`, leftColumnX, currentY); 
@@ -268,6 +302,7 @@ function generatePDF() {
 
         doc.text(`${entry.label}: $ ${entry.value}`, secondRightColumnX, currentY);
         currentY += 10; 
+        doc.setTextColor(0, 0, 0);
     });
 
     // Summary
@@ -287,22 +322,11 @@ function generatePDF() {
     // Convert results to number
     totalIncome = parseFloat(document.getElementById('total-income').textContent) || 0;
     totalExpenses = parseFloat(document.getElementById('total-expenses').textContent) || 0;
- 
-    if (balance > 0) {
-        console.log("Le solde est positif.");
-        doc.setTextColor(0, 128, 0); // Green
-    } else if (balance === 0) {
-        console.log("Le solde est zéro.");
-        doc.setTextColor(0, 0, 0); // Black
-    } else {
-        console.log("Le solde est négatif.");
-        doc.setTextColor(255, 0, 0); // Red
-    }
 
     doc.setFont("helvetica", "bold");
     doc.text(`Balance: ${balance}`, 20, currentY);
 
-    balance = parseFloat(totalIncome - totalExpenses);
+    balance = parseFloat((totalIncome - totalExpenses).toFixed(2));
 
     const pdfDataUri = doc.output('datauristring');
 
@@ -382,25 +406,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const clearEntries = document.querySelector('.clear-entries');
-
-    clearEntries.addEventListener('click', () => {
-        const inputFields = document.querySelectorAll('input[type="number"]');
-        inputFields.forEach(input => {
-            input.value = ''; 
-        });
-
-        totalIncome = 0;
-        totalIncomeElement.innerText = "$ " + totalIncome.toFixed(2);
-        totalIncomeElement.style.color = 'black';
-
-        let totalExpenses = 0;
-        totalExpensesElement.innerText =  "$ " + totalExpenses.toFixed(2);
-        totalExpensesElement.style.color = 'black';
-
-        balance = 0;
-        balanceElement.innerText = "$ " + balance.toFixed(2);
-        balanceElement.style.color = 'black';
-    });
-});
