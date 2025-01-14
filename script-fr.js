@@ -78,13 +78,13 @@ document.addEventListener("DOMContentLoaded", function () {
         totalExpenses = 0;
         balance = 0;
 
-        totalIncomeElement.innerText = "$ " + totalIncome.toFixed(2);
+        totalIncomeElement.innerText = totalIncome.toFixed(2) + " € ";
         totalIncomeElement.style.color = 'black';
 
-        totalExpensesElement.innerText = "$ " + totalExpenses.toFixed(2);
+        totalExpensesElement.innerText = totalExpenses.toFixed(2) + " € ";
         totalExpensesElement.style.color = 'black';
 
-        balanceElement.innerText = "$ " + balance.toFixed(2);
+        balanceElement.innerText = balance.toFixed(2) + " € ";
         balanceElement.style.color = 'black';
     });
 
