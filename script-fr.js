@@ -163,11 +163,20 @@ function generatePDF() {
 
     // Get current date
     const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString('fr-FR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
+    const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", 
+                        "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    const month = monthNames[currentDate.getMonth()]; 
+    const dayNumber = currentDate.getDate(); 
+    const year = currentDate.getFullYear(); 
+
+    function getOrdinalSuffix(dayNumber) {
+        if (dayNumber === 1) {
+            return dayNumber + 'er';
+        }
+    }
+
+    const formattedDayNumber = getOrdinalSuffix(dayNumber);
+    const formattedDate = `${formattedDayNumber} ${month} ${year}`;
 
     // Display current date
     doc.setFontSize(12);
